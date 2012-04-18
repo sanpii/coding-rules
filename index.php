@@ -47,6 +47,7 @@ class Application
     public function __construct()
     {
         $this->rules = $this->loadRules();
+        $this->generateCss();
     }
 
     private function loadRules()
@@ -58,6 +59,15 @@ class Application
         return $rules;
     }
 
+    private function generateCSS()
+    {
+        require 'lessc.inc.php';
+
+        foreach (glob('css/*.less') as $less) {
+            lessc::ccompile($less, "$less.css");
+        }
+    }
+
     public function run()
     {
         $this->render($this->rules);
@@ -67,7 +77,7 @@ class Application
     {
         extract((array)$rules);
         ob_start();
-        include(__DIR__ . '/layout.tpl');
+        require 'layout.tpl';
         $content = ob_get_contents();
         ob_end_clean();
 
