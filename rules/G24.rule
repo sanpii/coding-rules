@@ -1,0 +1,12 @@
+== Respecter des conventions standard ==
+Chaque équipe doit respecter un standard de codage fondé sur les normes industrielles
+reconnues. Ce standard doit préciser certains points, comme où déclarer les variables
+d'instance, comment nommer les classes, les méthodes et les variables, où placer les
+accolades, etc. L'équipe ne doit pas avoir besoin d'un document pour décrire ces
+conventions car son code sert d'exemple.
+Tous les membres de l'équipe doivent respecter ces conventions. Autrement dit, chacun
+d'eux doit être suffisamment mûr pour réaliser que l'emplacement des accolades n'a
+absolument aucune importance à partir du moment où tout le monde s'accorde sur cet
+emplacement.
+Si vous voulez connaître mes conventions, vous les trouverez dans le code remanié des
+Listings B.7 à B.14 à l'Annexe B.

@@ -1,0 +1,5 @@
+== Les tests doivent être rapides ==
+Un test lent est un test qui n'est pas exécuté. Lorsque les échéances se rapprochent, les
+tests lents sont retirés de la suite. Vous devez donc faire tout votre possible pour garder
+des tests rapides.
+

@@ -1,0 +1,12 @@
+== Couplage artificiel ==
+Les choses indépendantes ne doivent pas être couplées artificiellement. Par exemple,
+vous ne devez pas placer les énumérations générales dans des classes spécifiques car
+l'ensemble de l'application doit alors connaître ces classes spécifiques. C'est également
+vrai pour les fonctions static à usage général déclarées dans des classes spécifiques.
+Un couplage artificiel correspond souvent à un couplage entre deux modules qui n'ont
+aucun rapport direct. Il résulte du placement d'une variable, d'une constante ou d'une
+fonction dans un endroit commode sur le moment, mais finalement inadapté. Cela
+révèle une certaine paresse et un manque de soin.
+Prenez le temps de déterminer le meilleur emplacement pour la déclaration des fonc-
+tions, des constantes et des variables. Ne les déposez pas simplement dans l'endroit le
+plus pratique, pour les y laisser.

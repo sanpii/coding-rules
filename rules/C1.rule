@@ -1,0 +1,9 @@
+== Informations inappropriées ==
+Un commentaire ne doit pas contenir des informations dont la véritable place est
+ailleurs, comme dans le système de gestion du code source, le système de suivi des
+problèmes ou tout autre système de gestion de documents. Par exemple, les historiques
+des modifications ne font qu'encombrer les fichiers sources avec de grandes quantités
+de texte pas vraiment intéressant. En général, les métadonnées, comme les auteurs, la
+date de dernière modification, les numéros de SPR (Software Problem Report), etc., ne
+doivent pas apparaître dans les commentaires. Ces derniers sont réservés aux notes
+techniques concernant le code et la conception.

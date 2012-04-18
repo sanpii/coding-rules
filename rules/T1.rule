@@ -1,0 +1,6 @@
+== Tests insuffisants ==
+Combien de tests doit contenir une suite ? Malheureusement, la métrique employée par
+de nombreux programmeurs est "cela devrait suffire". Une suite de tests doit contrôler
+tout ce qui peut être source de dysfonctionnement. Les tests restent insuffisants tant
+qu'il existe des conditions qui n'ont pas été explorées par les tests ou des calculs qui
+n'ont pas été validés.

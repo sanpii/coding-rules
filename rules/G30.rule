@@ -1,0 +1,34 @@
+== Les fonctions doivent faire une seule chose ==
+Nous sommes souvent tentés de créer des fonctions qui contiennent plusieurs sections
+réalisant une suite d'opérations. Les fonctions de ce type font plusieurs choses et doivent
+être converties en plusieurs fonctions plus petites, chacune réalisant une seule chose.
+Prenons la fonction suivante :
+~~~
+void pay() {
+    for (Employee e : employees) {
+        if (e.isPayday()) {
+            Money pay = e.calculatePay();
+            e.deliverPay(pay);
+        }
+    }
+}
+~~~
+Ce bout de code réalise trois choses. Il parcourt la liste des employés, vérifie si chacun
+d'eux doit être payé, puis paye l'employé. Il serait préférable de l'écrire de la manière
+suivante :
+~~~
+public void pay() {
+    for (Employee e : employees)
+        payIfNecessary(e);
+}
+private void payIfNecessary(Employee e) {
+    if (e.isPayday())
+        calculateAndDeliverPay(e);
+}
+private void calculateAndDeliverPay(Employee e) {
+    Money pay = e.calculatePay();
+    e.deliverPay(pay);
+}
+~~~
+Chacune de ces fonctions effectue une seule chose (voir la section "Faire une seule
+chose" au Chapitre 3).

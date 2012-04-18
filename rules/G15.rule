@@ -1,0 +1,43 @@
+== Arguments sélecteurs ==
+Rien n'est plus abominable qu'un argument false à la fin d'un appel de fonction. Que
+signifie-t-il ? Que se passe-t-il si nous le changeons en true ? Non seulement le rôle
+d'un argument sélecteur est difficile à mémoriser, mais chaque argument sélecteur
+combine de nombreuses fonctions en une. Les arguments sélecteurs ne sont qu'une
+manière paresseuse d'éviter de décomposer une longue fonction en plusieurs fonctions
+plus petites. Prenons la méthode suivante :
+~~~
+public int calculateWeeklyPay(boolean overtime) {
+    int tenthRate = getTenthRate();
+    int tenthsWorked = getTenthsWorked();
+    int straightTime = Math.min(400, tenthsWorked);
+    int overTime = Math.max(0, tenthsWorked - straightTime);
+    int straightPay = straightTime * tenthRate;
+    double overtimeRate = overtime ? 1.5 : 1.0 * tenthRate;
+    int overtimePay = (int)Math.round(overTime*overtimeRate);
+    return straightPay + overtimePay;
+}
+~~~
+Elle est invoquée avec l'argument true lorsque les heures supplémentaires doivent être
+payées une fois et demie plus cher, et avec un argument false lorsqu'elles sont payées
+le même prix que les heures normales. Si nous rencontrons l'invocation calculate
+WeeklyPay(false) dans le code, il n'est pas certain que nous saurons nous rappeler de
+sa signification. Toutefois, le vrai problème d'une telle fonction est que son auteur a
+manqué l'occasion de l'écrire de la manière suivante :
+~~~
+    public int straightPay() {
+        return getTenthsWorked() * getTenthRate();
+    }
+    public int overTimePay() {
+        int overTimeTenths = Math.max(0, getTenthsWorked() - 400);
+        int overTimePay = overTimeBonus(overTimeTenths);
+        return straightPay() + overTimePay;
+    }
+    private int overTimeBonus(int overTimeTenths) {
+    double bonus = 0.5 * getTenthRate() * overTimeTenths;
+    return (int) Math.round(bonus);
+}
+~~~
+Bien entendu, les sélecteurs ne sont pas toujours des booléens. Ils peuvent prendre la
+forme d'énumérations, d'entiers ou de tout autre type d'argument utilisé pour choisir le
+comportement de la fonction. En général, il est préférable d'écrire plusieurs fonctions
+plutôt que passer un code qui définit le comportement d'une fonction.

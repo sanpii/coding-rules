@@ -1,0 +1,4 @@
+== Tester de manière exhaustive autour des bogues ==
+Les bogues ont tendance à se rassembler. Lorsque vous découvrez un bogue dans une
+fonction, il est plus sage d'effectuer un test exhaustif de cette fonction. Vous constaterez
+probablement que le bogue n'était pas seul.

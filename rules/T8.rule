@@ -1,0 +1,3 @@
+== Les motifs dans la couverture des tests sont révélateurs ==
+En examinant le code qui est ou n'est pas exécuté par les tests qui réussissent, vous
+trouverez des indications sur les raisons d'échec des autres tests.

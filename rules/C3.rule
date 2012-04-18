@@ -1,0 +1,19 @@
+== Commentaires redondants ==
+Un commentaire est redondant lorsqu'il explique quelque chose qui est déjà suffisam-
+ment descriptif en soi. Par exemple :
+~~~
+i++; // Incrémenter i.
+~~~
+Un commentaire Javadoc qui ne dit rien de plus, voire moins, que la signature de la
+fonction est également redondant :
+~~~
+/**
+* @param sellRequest
+* @return
+* @throws ManagedComponentException
+*/
+public SellResponse beginSellItem(SellRequest sellRequest)
+throws ManagedComponentException
+~~~
+Les commentaires doivent expliquer des choses que le code est incapable d'exprimer
+par lui-même.

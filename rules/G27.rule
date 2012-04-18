@@ -1,0 +1,8 @@
+== Privilégier la structure à une convention ==
+Appliquez les choix de conception à l'aide d'une structure plutôt qu'une convention.
+Les conventions de nommage sont bonnes, mais elles sont inférieures aux structures
+qui, elles, imposent la conformité. Par exemple, les constructions switch/case avec des
+énumérations bien nommées sont inférieures aux classes de base avec des méthodes
+abstraites. Rien n'oblige le programmeur à implémenter à chaque fois l'instruction
+switch/case de la même manière. En revanche, les classes de base imposent aux clas-
+ses concrètes d'implémenter toutes les méthodes abstraites.

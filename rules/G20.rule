@@ -1,0 +1,16 @@
+== Les noms des fonctions doivent indiquer leur rôle ==
+Prenons le code suivant :
+~~~
+Date newDate = date.add(5);
+~~~
+Doit-on supposer qu'il ajoute cinq jours à la date ? Ou bien s'agit-il de semaines ou
+d'heures ? L'instance date est-elle modifiée ou la fonction retourne-t-elle simplement
+une nouvelle instance de Date sans toucher à l'ancienne ? En se fondant sur l'appel, il
+est impossible de dire précisément le rôle de la fonction.
+Si la fonction ajoute cinq jours à la date et modifie date, elle doit se nommer addDaysTo
+ou increaseByDays. En revanche, si elle retourne une nouvelle date qui correspond à
+cinq jours plus tard, mais sans modifier l'instance date, elle doit se nommer daysLater
+ou daysSince.
+S'il faut examiner l'implémentation ou la documentation de la fonction pour connaître
+son rôle, cela signifie qu'un meilleur nom doit être trouvé ou que la fonctionnalité doit
+être déplacée dans des fonctions ayant des noms appropriés.

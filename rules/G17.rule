@@ -1,0 +1,25 @@
+== Responsabilité mal placée ==
+Parmi les décisions les plus importantes qu'il doit prendre, le développeur de logiciels
+doit choisir l'emplacement de son code. Par exemple, où placer la constante PI ? Doit-
+elle rejoindre la classe Math ? N'appartiendrait-elle pas à la classe Trigonometry ? Ou
+bien à la classe Circle ?
+Le principe de moindre surprise intervient également dans cette situation. Le code doit
+être placé là où le lecteur s'attend naturellement à le trouver. La place de la constante PI
+est aux côtés des fonctions trigonométriques. La constante OVERTIME RATE doit être
+déclarée dans la classe HourlyPayCalculator.
+Parfois, nous plaçons une fonctionnalité de manière "astucieuse". Nous l'intégrons à la
+fonction qui nous arrange, mais qui n'est pas nécessairement celle qu'aurait imaginée le
+lecteur. Supposons, par exemple, que nous devions afficher un rapport avec le nombre
+total d'heures de travail d'un employé. Nous pouvons additionner toutes ces heures
+dans le code qui affiche le rapport ou nous pouvons gérer un total dans le code qui reçoit
+les cartes de pointage.
+Pour prendre la bonne décision, il est possible de s'appuyer sur les noms des fonctions.
+Supposons que notre module de création du rapport possède une fonction nommée
+getTotalHours. Supposons également que le module qui accepte les cartes de pointage
+contienne une fonction saveTimeCard. D'après les noms de ces deux fonctions, laquelle
+doit calculer le nombre total d'heures ? La réponse est évidente.
+Parfois, des questions de performances justifient le calcul du total au moment où les
+cartes de pointage sont reçues, non lorsque le rapport est affiché. Pas de problème, mais
+les noms des fonctions doivent refléter ce fonctionnement. Par exemple, le module de
+gestion des cartes de pointage doit proposer une fonction computeRunningTotalOf
+Hours.

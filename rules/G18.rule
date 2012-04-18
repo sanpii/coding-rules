@@ -1,0 +1,20 @@
+== Méthodes statiques inappropriées ==
+Math.max(double a, double b) est une bonne méthode statique. Elle n'opère sur
+aucune instance ; il serait évidemment stupide de devoir écrire new Math().max(a,b)
+ou même a.max(b). Toutes les données utilisées par max proviennent de ces deux argu-
+ments, non d'un objet "propriétaire". Qui plus est, il n'y a quasiment aucune chance que
+nous voulions une version polymorphe de Math.max.
+Il nous arrive cependant d'écrire des fonctions statiques qui ne devraient pas l'être.
+Prenons l'exemple suivant :
+HourlyPayCalculator.calculatePay(employee, overtimeRate)
+Cette fonction statique semble raisonnable. Elle n'opère sur aucun objet particulier et
+prend toutes ses données dans ses arguments. Toutefois, il existe une possibilité raison-
+nable que cette fonction ait besoin d'être polymorphe. Nous pourrions souhaiter implé-
+menter différents algorithmes de calcul des heures payées, par exemple
+OvertimeHourlyPayCalculator et StraightTimeHourlyPayCalculator. Dans ce cas,
+la fonction ne doit pas être statique. Elle doit être une fonction membre non statique de
+la classe Employee.
+De manière générale, vous devez préférer les méthodes non statiques aux méthodes
+statiques. En cas de doute, optez pour une fonction non statique. Si vous voulez réelle-
+ment qu'une fonction soit statique, vérifiez qu'il n'y a aucune chance qu'elle ait un jour
+un comportement polymorphe.

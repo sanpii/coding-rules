@@ -1,0 +1,5 @@
+== Trop grand nombre d'arguments ==
+Le nombre d'arguments d'une fonction doit être aussi réduit que possible. Il est préféra-
+ble de n'avoir aucun argument, puis un, deux et trois. Lorsqu'il y a plus de trois argu-
+ments, vous devez vous interroger sur leur raison d'être et faire en sorte d'éviter cette
+situation. (Voir la section "Arguments d'une fonction" à la page 45.)

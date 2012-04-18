@@ -1,0 +1,15 @@
+== Préférer le polymorphisme aux instructions if/else ou switch/case ==
+Étant donné le sujet du Chapitre 6, cette recommandation pourrait sembler étrange. En
+effet, j'ai indiqué dans ce chapitre que les instructions switch pouvaient être appropriées
+dans les parties du système où l'ajout de nouvelles fonctions était plus probable que
+l'ajout de nouveaux types.
+Tout d'abord, la plupart des programmeurs emploient les instructions switch parce
+qu'elles constituent une solution évidente, non parce qu'elles sont la bonne solution.
+L'objectif de cette heuristique est de vous rappeler qu'il faut envisager le polymorphisme
+avant l'instruction switch.
+Par ailleurs, les cas de fonctions plus volatiles que les types sont relativement rares. Par
+conséquent, toute instruction switch doit être considérée comme suspecte.
+Je suis la règle "UN SWITCH" suivante : il ne doit pas y avoir plus d'une instruction
+switch pour un type donné de sélection. Les cas de cette instruction switch doivent
+créer des objets polymorphes qui prennent la place d'autres instructions switch dans le
+reste du système.

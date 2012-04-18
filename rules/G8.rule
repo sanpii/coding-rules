@@ -1,0 +1,16 @@
+== Beaucoup trop d'informations ==
+Les modules bien définis offrent des interfaces très petites qui permettent de faire beau-
+coup avec peu. Les modules mal définis fournissent des interfaces vastes et profondes
+qui nous obligent à employer plusieurs actions différentes pour réaliser des choses
+simples. Avec une interface parfaitement définie, nous dépendons d'un nombre réduit
+de fonctions et le couplage est faible. Avec une interface médiocre, nous devons invo-
+quer un grand nombre de fonctions et le couplage est élevé.
+Les bons développeurs de logiciels apprennent à limiter les points exposés par les inter-
+faces de leurs classes et modules. Moins la classe propose de méthodes, mieux c'est.
+Moins une fonction connaît de variables, mieux c'est. Moins une classe contient de
+variables d'instance, mieux c'est.
+Cachez vos données. Cachez vos fonctions utilitaires. Cachez vos constantes et vos
+variables temporaires. Ne créez pas des classes qui offrent un grand nombre de métho-
+des ou de variables d'instance. Ne créez pas de nombreuses variables et fonctions proté-
+gées destinées aux sous-classes. Efforcez-vous de définir des interfaces concises.
+Maintenez un couplage faible en limitant les informations.

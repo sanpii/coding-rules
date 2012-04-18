@@ -1,0 +1,12 @@
+== Incohérence ==
+Si vous faites quelque chose d'une certaine manière, toutes les choses comparables
+doivent se faire de cette façon-là. On retrouve là le principe de moindre surprise. Choi-
+sissez bien vos conventions et, une fois la décision prise, faites attention à les respecter.
+Si, dans une fonction précise, vous utilisez une variable nommée response pour conte-
+nir un HttpServletResponse, vous devez employer de manière cohérente le même nom
+de variable dans les autres fonctions qui manipulent des objets HttpServletResponse.
+Si vous nommez une méthode processVerificationRequest, vous devez choisir un
+nom semblable, comme processDeletionRequest, pour les méthodes qui traitent
+d'autres types de requêtes.
+Lorsqu'elle est appliquée de manière fiable, une simple cohérence de ce genre permet
+d'obtenir un code plus facile à lire et à modifier.

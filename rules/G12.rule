@@ -1,0 +1,6 @@
+== Désordre ==
+À quoi peut bien servir un constructeur par défaut sans implémentation ? Il ne fait
+qu'encombrer le code avec des artefacts sans signification. Les variables non utilisées,
+les fonctions jamais invoquées, les commentaires qui n'apportent aucune information,
+etc. ne font que contribuer au désordre et doivent être supprimés. Vous devez garder des
+fichiers sources propres, bien organisés et sans désordre.

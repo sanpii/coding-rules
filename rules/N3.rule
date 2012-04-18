@@ -1,0 +1,14 @@
+== Employer si possible une nomenclature standard ==
+Les noms sont plus faciles à comprendre lorsqu'ils se fondent sur une convention ou un
+usage établi. Par exemple, si vous utilisez le motif DÉCORATEUR, vous devez employer le
+mot Decorator dans les noms des classes correspondantes. Ainsi, AutoHangupModem
+Decorator pourrait être le nom d'une classe qui "décore" un Modem en apportant la
+possibilité de raccrocher automatiquement à la fin d'une session.
+Les motifs ne sont pas les seuls standards. En Java, par exemple, les fonctions qui
+convertissent des objets en chaînes de caractères se nomment souvent toString. Il est
+préférable de suivre ce genre de conventions que d'inventer les vôtres.
+Très souvent, les équipes définissent leur propre système standard de nommage dans un
+projet précis. Eric Evans appelle cela le langage commun au projet [DDD]. Le code doit
+employer systématiquement les termes de ce langage. En résumé, plus vous utilisez des
+noms ayant une signification spéciale pertinente dans le projet, plus il sera facile au
+lecteur de savoir ce dont parle le code.

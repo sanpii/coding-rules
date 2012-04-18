@@ -1,0 +1,6 @@
+== Un test ignoré est une interrogation sur une ambiguïté ==
+Parfois, nous ne sommes pas certains des détails d'un comportement car les exigences
+sont floues. Nous pouvons exprimer nos interrogations concernant les exigences sous
+forme de tests mis en commentaire ou d'un test annoté avec le mot-clé @Ignore. Le
+choix entre ces deux solutions se fonde sur la nécessité pour le point ambigu de compi-
+ler ou non.

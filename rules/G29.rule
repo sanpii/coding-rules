@@ -1,0 +1,11 @@
+== Éviter les expressions conditionnelles négatives ==
+Les négations sont plus difficiles à comprendre que les affirmations. Par conséquent,
+lorsque c'est possible, les expressions conditionnelles doivent être données sous une
+forme positive. Par exemple, vous devez préférer
+~~~
+if (buffer.shouldCompact())
+~~~
+à
+~~~
+if (!buffer.shouldNotCompact())
+~~~

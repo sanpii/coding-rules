@@ -1,0 +1,10 @@
+== Comportement incorrect aux limites ==
+Il peut sembler évident que le code doive se comporter correctement. Cependant, nous
+réalisons rarement combien cette évidence est compliquée à mettre en œuvre. Les déve-
+loppeurs écrivent souvent des fonctions qu'ils pensent opérationnelles et font confiance
+à leur intuition au lieu de faire l'effort de montrer que leur code fonctionne dans tous les
+cas limites.
+Rien ne remplace une attention poussée. Chaque condition limite, chaque cas particu-
+lier, chaque excentricité et chaque exception peut remettre en question un algorithme
+élégant et intuitif. Ne vous fondez pas sur vos intuitions. Recherchez chaque condition
+limite et écrivez le test correspondant.

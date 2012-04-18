@@ -1,0 +1,7 @@
+== Éviter la codification ==
+Les noms ne doivent pas contenir une information de type ou de portée. Les préfixes
+comme m et f sont superflus dans les environnements actuels. De même, codifier un
+projet et/ou un sous-système, par exemple avec vis (pour un système d'imagerie
+visuelle), constitue une source de distraction et de redondance. Une fois encore, les
+environnements actuels apportent toutes ces informations sans avoir besoin de triturer
+les noms. Ne polluez pas vos noms par une notation hongroise.

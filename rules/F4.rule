@@ -1,0 +1,4 @@
+== Fonction morte ==
+Les méthodes qui ne sont jamais appelées doivent être retirées. La conservation du code
+mort coûte cher. N'ayez pas peur de supprimer une fonction morte : le système de
+gestion de code source se charge de la conserver.

@@ -1,0 +1,11 @@
+== Les motifs d'échec sont révélateurs ==
+Vous pouvez parfois diagnostiquer un problème en recherchant des motifs dans la
+manière dont les cas de test échouent. Il s'agit d'un autre argument en faveur des cas de
+test aussi complets que possible. Arrangés de manière juste, les cas de test complets
+révèlent des motifs.
+Supposons, par exemple, que vous ayez remarqué que tous les tests dont l'entrée
+dépasse cinq caractères échouent. Ou bien que tout test qui passe une valeur négative en
+second argument d'une fonction échoue. Parfois, le simple fait de voir le motif de rouge
+et de vert sur le rapport de test suffit à provoquer le déclic qui mène à la solution. Vous
+en trouverez un exemple intéressant dans la classe SerialDate remaniée au
+Chapitre 16.

@@ -1,0 +1,11 @@
+== Sécurités neutralisées ==
+Tchernobyl a explosé car le directeur technique avait neutralisé un par un les mécanis-
+mes de sécurité. En raison des sécurités, les expérimentations étaient malcommodes à
+mener. L'expérience n'a pas fonctionné et le monde a vu sa première catastrophe
+nucléaire civile majeure.
+Neutraliser les sécurités présente un risque. Il peut être nécessaire d'exercer un contrôle
+manuel sur serialVersionUID, mais c'est toujours risqué. La désactivation de certains
+avertissements du compilateur, voire de tous les avertissements, peut faciliter la cons-
+truction du système, mais au risque de sessions de débogage sans fin. Désactiver les
+tests qui échouent et se dire que l'on fera en sorte qu'ils réussissent plus tard est aussi
+mauvais que prétendre que sa carte bancaire représente de l'argent gratuit.

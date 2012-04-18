@@ -1,0 +1,3 @@
+== Tester aux conditions limites ==
+Faites particulièrement attention aux tests aux conditions limites. Bien souvent, la
+partie centrale d'un algorithme est juste, mais les extrémités ont été mal appréciées.

@@ -1,0 +1,31 @@
+== Conserver les données configurables à des niveaux élevés ==
+Si une constante, comme une valeur par défaut ou une valeur de configuration, est
+connue et attendue à un haut niveau d'abstraction, ne l'enterrez pas dans une fonction
+de bas niveau. Exposez-la sous forme d'un argument de cette fonction de bas niveau,
+invoquée à partir de la fonction de haut niveau. Prenons le code suivant, extrait de
+FitNesse :
+~~~
+public static void main(String[] args) throws Exception
+{
+    Arguments arguments = parseCommandLine(args);
+    ...
+}
+public class Arguments
+{
+    public static final String DEFAULT_PATH = ".";
+    public static final String DEFAULT_ROOT = "FitNesseRoot";
+    public static final int DEFAULT_PORT = 80;
+    public static final int DEFAULT_VERSION_DAYS = 14;
+    ...
+}
+~~~
+Les arguments de la ligne de commande sont analysés dès la première ligne d'exécution
+de FitNesse. Les valeurs par défaut de ces arguments sont fixées au début de la classe
+Argument. Il n'est pas nécessaire de plonger dans les niveaux inférieurs du système pour
+trouver des instructions comme la suivante :
+~~~
+    if (arguments.port == 0) // Utiliser 80 par défaut.
+~~~
+Les constantes de configuration résident à un niveau très élevé et sont faciles à modifier.
+Elles sont transmises au reste de l'application. Les niveaux inférieurs de l'application
+ne possèdent pas les valeurs de ces constantes.

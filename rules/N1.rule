@@ -1,0 +1,66 @@
+== Choisir des noms descriptifs ==
+Ne soyez pas trop rapide dans le choix d'un nom. Assurez-vous qu'il est descriptif.
+N'oubliez pas que le sens des noms a tendance à dériver avec l'évolution du logiciel.
+Par conséquent, vous devez vérifier fréquemment la pertinence des noms retenus.
+Il ne s'agit pas simplement d'une recommandation de "bien-être". Les noms représen-
+tent 90 % de la lisibilité d'un logiciel. Vous devez prendre le temps de faire des choix
+judicieux et de conserver des noms pertinents. Ils sont trop importants pour être pris à la
+légère.
+Examinez le code suivant. Quelle est sa fonction ? Si je vous montre ce code avec des
+noms bien choisis, vous le comprendrez parfaitement. En revanche, sous cette forme, il
+ne s'agit que d'un amoncellement de symboles et de nombres magiques.
+~~~
+public int x() {
+    int q = 0;
+    int z = 0;
+    for (int kk = 0; kk < 10; kk++) {
+        if (l[z] == 10)
+        {
+            q += 10 + (l[z + 1] + l[z + 2]);
+            z += 1;
+        }
+        else if (l[z] + l[z + 1] == 10)
+        {
+            q += 10 + l[z + 2];
+            z += 2;
+        } else {
+            q += l[z] + l[z + 1];
+            z += 2;
+        }
+    }
+    return q;
+}
+~~~
+Voici comment le code aurait dû être écrit :
+~~~
+public int score() {
+    int score = 0;
+    int frame = 0;
+    for (int frameNumber = 0; frameNumber < 10; frameNumber++) {
+        if (isStrike(frame)) {
+            score += 10 + nextTwoBallsForStrike(frame);
+            frame += 1;
+        } else if (isSpare(frame)) {
+            score += 10 + nextBallForSpare(frame);
+            frame += 2;
+        } else {
+            score += twoBallsInFrame(frame);
+            frame += 2;
+        }
+    }
+    return score;
+}
+~~~
+Cet extrait est en réalité moins complet que le précédent. Vous pouvez néanmoins
+déduire immédiatement ce qu'il tente de réaliser et ainsi écrire les fonctions manquan-
+tes. Les nombres ne sont plus magiques et la structure de l'algorithme est parfaitement
+descriptive.
+Les noms bien choisis ont le pouvoir d'ajouter une description à la structure du code.
+Ainsi, le lecteur sait ce qu'il doit attendre des autres fonctions du module. Vous pouvez
+déduire l'implémentation de isStrike() en examinant le code précédent. Si vous lisez
+le code de la méthode isStrike, il réalise "pratiquement ce que vous attendiez".
+~~~
+private boolean isStrike(int frame) {
+    return rolls[frame] == 10;
+}
+~~~

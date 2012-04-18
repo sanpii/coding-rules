@@ -1,0 +1,43 @@
+== Couplages temporels cachés ==
+Les couplages temporels sont souvent nécessaires, mais ils ne doivent pas être cachés.
+Les arguments des fonctions doivent être structurés de manière que leur ordre dans les
+appels soit évident. Prenons le code suivant :
+~~~
+public class MoogDiver {
+    Gradient gradient;
+    List<Spline> splines;
+    public void dive(String reason) {
+        saturateGradient();
+        reticulateSplines();
+        diveForMoog(reason);
+    }
+    ...
+}
+~~~
+L'ordre des trois fonctions est important. Il faut tout d'abord invoquer saturateGra
+dient avant de pouvoir appeler reticulateSplines, et alors seulement il est possible
+d'invoquer diveForMoog. Malheureusement, le code n'impose pas ce couplage tempo-
+rel. Un autre programmeur pourrait invoquer reticulateSplines avant saturate
+Gradient, conduisant à une exception UnsaturatedGradientException. Voici une
+meilleure solution :
+~~~
+public class MoogDiver {
+    Gradient gradient;
+    List<Spline> splines;
+    public void dive(String reason) {
+        Gradient gradient = saturateGradient();
+        List<Spline> splines = reticulateSplines(gradient);
+        diveForMoog(splines, reason);
+    }
+...
+}
+~~~
+Le couplage temporel est exposé en créant une séquence d'appels à la manière d'une
+"chaîne de seaux". Chaque fonction produit un résultat dont la suivante a besoin. Il
+n'existe donc aucune manière sensée de les invoquer dans le désordre.
+Vous pourriez critiquer l'augmentation de la complexité des fonctions induite par cette
+approche. Cependant, la complexité syntaxique supplémentaire permet de révéler la
+réelle complexité temporelle de la situation.
+Vous remarquerez que j'ai laissé les variables d'instance à leur place. Je suppose
+qu'elles sont requises par des méthodes privées de la classe. Néanmoins, je veux que les
+arguments rendent explicite le couplage temporel.

@@ -1,0 +1,6 @@
+== Les tests exigent plusieurs étapes ==
+Vous devez être en mesure d'exécuter tous les tests unitaires à l'aide d'une seule
+commande. Dans le meilleur des cas, vous pouvez exécuter tous les tests en cliquant sur
+un bouton de votre IDE. Dans le pire des cas, vous devez pouvoir saisir une seule
+commande simple dans un shell. L'exécution des tests est fondamentale et tellement
+importante qu'elle doit pouvoir se faire rapidement, facilement et simplement.

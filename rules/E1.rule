@@ -1,0 +1,11 @@
+== La construction exige plusieurs étapes ==
+La construction d'un projet doit représenter une seule opération triviale. Vous ne devez
+pas avoir à extraire de nombreux petits éléments du système de gestion du code source.
+Vous ne devez pas avoir besoin d'une suite de commandes incompréhensibles ou de
+scripts dépendant du contexte pour construire chaque élément. Vous ne devez pas avoir
+à rechercher tous les petits fichiers JAR, XML ou autres dont le système a besoin. Vous
+devez pouvoir extraire le système par une simple commande, puis le construire à l'aide
+d'une autre commande simple.
+svn get mySystem
+cd mySystem
+ant all

@@ -1,0 +1,23 @@
+== Utiliser des variables explicatives ==
+Kent Beck a écrit sur ce sujet dans son formidable livre Smalltalk Best Practice
+Patterns [Beck97, p. 108], et plus récemment dans son ouvrage tout aussi formidable
+Implementation Patterns [Beck07]. Pour qu'un programme soit lisible, l'une des solu-
+tions les plus performantes consiste à décomposer les calculs en valeurs intermédiaires
+représentées par des variables aux noms significatifs.
+Prenons l'exemple suivant extrait de FitNesse :
+~~~
+Matcher match = headerPattern.matcher(line);
+if(match.find())
+{
+    String key = match.group(1);
+    String value = match.group(2);
+    headers.put(key.toLowerCase(), value);
+}
+~~~
+La simple utilisation de variables explicatives permet de comprendre que le premier
+groupe qui correspond représente la clé (key) et que le second groupe représente la
+valeur (value).
+Il est difficile d'en faire trop. En général, il est préférable d'utiliser trop de variables
+explicatives que pas assez. Il est étonnant de voir comment un module opaque peut
+soudainement devenir transparent par une simple décomposition des calculs en valeurs
+intermédiaires aux noms parfaitement choisis.

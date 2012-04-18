@@ -1,0 +1,15 @@
+== Les noms doivent décrire les effets secondaires ==
+Les noms doivent décrire tout ce qu'une fonction, une variable ou une classe est ou fait.
+Ne cachez pas des effets secondaires à l'aide d'un nom. N'utilisez pas un simple verbe
+pour décrire une fonction qui ne se limite pas à cette simple action. Par exemple,
+prenons le code suivant, extrait de TestNG :
+~~~
+public ObjectOutputStream getOos() throws IOException {
+    if (m_oos == null) {
+        m_oos = new ObjectOutputStream(m_socket.getOutputStream());
+    }
+    return m_oos;
+}
+~~~
+Cette fonction ne se réduit pas à obtenir un "oos" : elle crée un ObjectOutputStream si
+ce n'est déjà fait. Elle devrait donc se nommer createOrReturnOos, par exemple.

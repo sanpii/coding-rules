@@ -1,0 +1,21 @@
+== Classes de base qui dépendent de leurs classes dérivées ==
+Si les concepts sont partitionnés dans des classes de base et des classes dérivées, c'est
+principalement pour que les concepts de haut niveau dans une classe de base soient
+indépendants des concepts de bas niveau dans une classe dérivée. Par conséquent, lors-
+que nous rencontrons des classes de base qui font référence aux noms de leurs classes
+dérivées, nous suspectons un problème. En général, les classes de base ne doivent rien
+connaître de leurs classes dérivées.
+Bien entendu, il existe des exceptions à cette règle. Parfois, le nombre de classes déri-
+vées est figé et la classe de base contient du code qui choisit la classe dérivée adéquate.
+Ce cas se rencontre souvent dans l'implémentation des machines à états finis. Cepen-
+dant, dans cet exemple précis, les classes dérivées et la classe de base sont fortement
+couplées et toujours déployées ensemble dans le même fichier jar. De manière générale,
+nous voulons pouvoir déployer des classes dérivées et des classes de base dans des
+fichiers jar différents.
+En déployant séparément les classes dérivées et les classes de base et en nous assurant
+que les fichiers jar des classes de base ne connaissent pas le contenu des fichiers jar des
+classes dérivées, nous pouvons déployer nos systèmes sous forme de composants auto-
+nomes et indépendants. Lorsque de tels composants sont modifiés, ils peuvent être redé-
+ployés sans avoir à redéployer les composants de base. Autrement dit, l'impact d'une
+modification est considérablement affaibli et la maintenance des systèmes devient
+beaucoup plus simple.

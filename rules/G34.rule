@@ -1,0 +1,68 @@
+== Les fonctions doivent descendre d'un seul niveau d'abstraction ==
+Les instructions d'une fonction doivent toutes se trouver au même niveau d'abstraction,
+qui doit être un niveau en dessous de l'opération décrite par le nom de la fonction. Il
+s'agit sans doute de l'heuristique la plus difficile à interpréter et à respecter. Bien que
+l'idée soit simple, les êtres humains parviennent bien trop facilement à jongler avec des
+niveaux d'abstraction différents. Prenons, par exemple, le code suivant extrait de
+FitNesse :
+~~~
+public String render() throws Exception
+{
+    StringBuffer html = new StringBuffer("<hr");
+    if(size > 0)
+        html.append(" size=\"").append(size + 1).append("\"");
+    html.append(">");
+    return html.toString();
+}
+~~~
+Après une courte réflexion, vous comprenez ce qui se passe. Cette fonction construit la
+balise HTML qui trace une ligne horizontale au travers de la page. La hauteur de la
+ligne est indiquée par la variable size.
+En examinant plus attentivement le code, nous constatons que la méthode mélange au
+moins deux niveaux d'abstraction : une ligne horizontale possède une taille, et la
+syntaxe de la balise HR elle-même. Ce code provient du module HruleWidget de
+FitNesse. Il détecte une suite de quatre tirets ou plus et la convertit en une balise HR
+appropriée. La taille dépend du nombre de tirets.
+Voici comment j'ai légèrement remanié ce code. J'ai changé le nom du champ size afin
+que son véritable rôle soit plus clair. Il contient le nombre de tirets supplémentaires.
+~~~
+public String render() throws Exception
+{
+    HtmlTag hr = new HtmlTag("hr");
+    if (extraDashes > 0)
+        hr.addAttribute("size", hrSize(extraDashes));
+    return hr.html();
+}
+private String hrSize(int height)
+{
+    int hrSize = height + 1;
+    return String.format("%d", hrSize);
+}
+~~~
+Cette modification sépare parfaitement les deux niveaux d'abstraction. La fonction
+render construit simplement une balise HR, sans rien connaître de la syntaxe HTML
+correspondante. Le module HtmlTag s'occupe des détails pénibles de syntaxe.
+En réalisant cette intervention, j'ai découvert une erreur subtile. Le code d'origine
+n'ajoutait pas la barre oblique finale dans la balise HR, comme l'exige la norme
+XHTML. Autrement dit, il génère &lt;hr&gt; à la place de &lt;hr/&gt;. Le module HtmlTag a
+depuis longtemps été modifié pour respecter la norme XHTML.
+La séparation des niveaux d'abstraction fait partie des objectifs les plus importants du
+remaniement et représente l'un des plus difficiles à atteindre. Prenons le code suivant
+comme exemple. Il s'agit de ma première tentative de séparation des niveaux d'abstrac-
+tion dans la méthode HruleWidget.render.
+~~~
+public String render() throws Exception
+{
+    HtmlTag hr = new HtmlTag("hr");
+    if (size > 0) {
+        hr.addAttribute("size", ""+(size+1));
+    }
+    return hr.html();
+}
+~~~
+Mon but était, à ce stade, de créer la séparation nécessaire et de faire en sorte que les
+tests réussissent. J'ai facilement atteint cet objectif, mais la fonction résultante mélan-
+geait encore les niveaux d'abstraction. Dans ce cas, il s'agissait de la construction de la
+balise HR et de l'interprétation et de la mise en forme de la variable size. Lorsque nous
+découpons une fonction en suivant des lignes d'abstraction, nous découvrons fréquem-
+ment de nouvelles lignes d'abstraction cachées par la structure précédente.
