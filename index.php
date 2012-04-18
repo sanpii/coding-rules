@@ -36,6 +36,7 @@ class Rule
     private function parseMarkdown($description)
     {
         require_once 'markdown.php';
+
         return Markdown($description);
     }
 }
@@ -59,7 +60,7 @@ class Application
         return $rules;
     }
 
-    private function generateCSS()
+    private function generateCss()
     {
         require 'lessc.inc.php';
 
