@@ -71,18 +71,41 @@ class Application
 
     public function run()
     {
-        $this->render($this->rules);
+        $this->render(array(
+            'rules' => $this->rules,
+            'summary' => $this->getSummary(),
+        ));
     }
 
-    public function render($rules)
+    public function render($params)
     {
-        extract((array)$rules);
+        extract($params);
         ob_start();
         require 'layout.tpl';
         $content = ob_get_contents();
         ob_end_clean();
 
         print $content;
+    }
+
+    public function getSummary()
+    {
+        static $titles = array(
+            'C' => 'Commentaire',
+            'E' => 'Environnement',
+            'F' => 'Fontion',
+            'G' => 'General',
+            'N' => 'Nommage',
+            'T' => 'Test',
+        );
+
+        $summary = array();
+
+        foreach ($this->rules as $rule) {
+            $title = $titles[$rule->id{0}];
+            $summary[$title][] = $rule;
+        }
+        return $summary;
     }
 }
 

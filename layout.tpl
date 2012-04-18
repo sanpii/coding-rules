@@ -7,17 +7,22 @@
         <script type="text/javascript" src="js/dialog.js"></script>
     </head>
     <body>
-        <ul id="summary">
-            <?php foreach($rules as $rule): ?>
-                <li><a href="#<?php print $rule->id ?>"><?php print $rule->title ?></a></li>
+        <div id="summary">
+            <?php foreach($summary as $title => $entries): ?>
+                <h2><?php print $title; ?></h2>
+                <ul>
+                    <?php foreach($entries as $rule): ?>
+                        <li><a href="#<?php print $rule->id ?>"><?php print $rule->title; ?></a></li>
+                    <?php endforeach; ?>
+                </ul>
             <?php endforeach; ?>
-        </ul>
+        </div>
 
         <div class="rules">
             <?php foreach($rules as $rule): ?>
-                <div class="rule" id="<?php print $rule->id ?>">
-                    <h2><?php print $rule->title ?></h2>
-                    <p><?php print $rule->description ?></p>
+                <div class="rule" id="<?php print $rule->id; ?>">
+                    <h3><?php print $rule->title; ?></h3>
+                    <p><?php print $rule->description; ?></p>
                 </div>
             <?php endforeach; ?>
         </div>
