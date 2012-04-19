@@ -13,6 +13,10 @@
         <div class="page-header">
             <h1>Indicateurs heuristiques</h1>
         </div>
+        <blockquote>
+            <p>Clean code that works</p>
+            <small>Kent Beck</small>
+        </blockquote>
         <div id="summary" class="row">
             <?php foreach($summary as $title => $entries): ?>
                 <div class="span4 well">
