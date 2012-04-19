@@ -1,14 +1,6 @@
 body {
-    max-width: 1060px;
+    max-width: 1006px;
     margin: 0 auto;
-}
-
-p {
-    text-align: justify;
-}
-
-#dialog {
-    display: none;
 }
 
 nav ul {
@@ -16,9 +8,36 @@ nav ul {
     font-size: 16px;
 }
 
+nav ul li, p {
+    line-height: 22px;
+    font-size: 15px;
+}
+
+.nav-list .nav-header {
+    font-size: 18px;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    vertical-align: -2px;
+}
+
+#dialog {
+    display: none;
+    width: 600px;
+    margin-left: -240px;
+}
+
 footer {
     border-top: 1px solid #E5E5E5;
     margin-top: 18px;
     padding: 35px 0 36px;
+}
+
+.clear {
+    clear: both;
+}
+
+.well {
+    padding: 10px;
 }
 

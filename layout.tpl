@@ -21,15 +21,22 @@
         </header>
 
         <nav class="row">
+            <?php $i = 0; ?>
             <?php foreach($summary as $title => $entries): ?>
-                <div class="span4 well">
-                    <h2><?php print $title; ?></h2>
-                    <ul>
+                <?php $class_clear = ($i % 3 == 0) ? 'clear' : ''; ?>
+                <div class="span4 well <?php print $class_clear; ?>">
+                    <ul class="nav nav-list">
+                        <li class="nav-header"><?php print $title; ?></li>
                         <?php foreach($entries as $rule): ?>
-                            <li><a href="#<?php print $rule->id ?>"><?php print $rule->title; ?></a></li>
+                            <li>
+                                <a href="#<?php print $rule->id ?>">
+                                    <span class="icon-chevron-right"></span><?php print $rule->title; ?>
+                                </a>
+                            </li>
                         <?php endforeach; ?>
                     </ul>
                 </div>
+                <?php $i++; ?>
             <?php endforeach; ?>
         </nav>
 
@@ -53,7 +60,7 @@
 
         <div id="dialog" class="modal">
             <div class="modal-header">
-                <a class="close" data-dismiss="modal">×</a>
+                <a class="close" data-dismiss="modal">&times;</a>
                 <div class="title"></div>
             </div>
             <div class="modal-body">
