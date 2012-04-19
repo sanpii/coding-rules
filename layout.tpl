@@ -17,6 +17,7 @@
             <p>Clean code that works</p>
             <small>Kent Beck</small>
         </blockquote>
+
         <div id="summary" class="row">
             <?php foreach($summary as $title => $entries): ?>
                 <div class="span4 well">
@@ -42,6 +43,11 @@
                 </div>
             <?php endforeach; ?>
         </div>
+
+        <footer class="footer">
+            <p class="pull-right"><a href="#">Back to top</a></p>
+            <p>Code licensed under the <a target="_blank" href="http://en.wikipedia.org/wiki/Beerware">Beerware License</a>.
+        </footer>
 
         <div id="dialog" class="modal">
             <div class="modal-header">
