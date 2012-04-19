@@ -4,10 +4,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Indicateurs heuristiques</title>
         <link rel="Stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css" />
-        <link rel="Stylesheet" type="text/css" href="css/style.css" />
+        <link rel="Stylesheet" type="text/css" href="style.css" />
         <script type="text/javascript" src="vendor/jquery-1.7.2.min.js"></script>
         <script type="text/javascript" src="vendor/bootstrap-modal.js"></script>
-        <script type="text/javascript" src="js/dialog.js"></script>
+        <script type="text/javascript" src="dialog.js"></script>
     </head>
     <body>
         <div class="page-header">
