@@ -10,15 +10,17 @@
         <script type="text/javascript" src="dialog.js"></script>
     </head>
     <body>
-        <div class="page-header">
-            <h1>Indicateurs heuristiques</h1>
-        </div>
-        <blockquote>
-            <p>Clean code that works</p>
-            <small>Kent Beck</small>
-        </blockquote>
+        <header>
+            <div class="page-header">
+                <h1>Indicateurs heuristiques</h1>
+            </div>
+            <blockquote>
+                <p>Clean code that works</p>
+                <small>Kent Beck</small>
+            </blockquote>
+        </header>
 
-        <div id="summary" class="row">
+        <nav class="row">
             <?php foreach($summary as $title => $entries): ?>
                 <div class="span4 well">
                     <h2><?php print $title; ?></h2>
@@ -29,22 +31,22 @@
                     </ul>
                 </div>
             <?php endforeach; ?>
-        </div>
+        </nav>
 
-        <div class="rules">
+        <section class="rules">
             <?php foreach($rules as $rule): ?>
-                <div class="rule" id="<?php print $rule->id; ?>">
+                <article id="<?php print $rule->id; ?>">
                     <div class="title">
                         <h3><?php print $rule->title; ?></h3>
                     </div>
                     <div class="description">
-                        <p><?php print $rule->description; ?></p>
+                        <?php print $rule->description; ?>
                     </div>
-                </div>
+                </article>
             <?php endforeach; ?>
-        </div>
+        </section>
 
-        <footer class="footer">
+        <footer>
             <p class="pull-right"><a href="#">Back to top</a></p>
             <p>Code licensed under the <a target="_blank" href="http://en.wikipedia.org/wiki/Beerware">Beerware License</a>.
         </footer>

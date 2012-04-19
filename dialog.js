@@ -1,12 +1,12 @@
 $(document).ready(function() {
-    $('.rule').hide();
+    $('.rules').hide();
 
     var qs = window.location.hash;
     if (qs !== '') {
         dialogShow(qs);
     }
 
-    $('#summary a').click(function(e) {
+    $('nav a').click(function(e) {
         e.preventDefault();
 
         var id = $(this).attr('href');

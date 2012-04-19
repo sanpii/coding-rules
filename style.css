@@ -11,12 +11,12 @@ p {
     display: none;
 }
 
-#summary ul {
+nav ul {
     margin-top: 9px;
     font-size: 16px;
 }
 
-.footer {
+footer {
     border-top: 1px solid #E5E5E5;
     margin-top: 18px;
     padding: 35px 0 36px;
