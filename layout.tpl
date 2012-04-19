@@ -2,8 +2,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Indicateurs heuristiques</title>
+        <link rel="Stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.css" />
         <link rel="Stylesheet" type="text/css" href="css/style.less.css" />
         <script type="text/javascript" src="vendor/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="vendor/bootstrap-modal.js"></script>
         <script type="text/javascript" src="js/dialog.js"></script>
     </head>
     <body>
@@ -21,14 +23,25 @@
         <div class="rules">
             <?php foreach($rules as $rule): ?>
                 <div class="rule" id="<?php print $rule->id; ?>">
-                    <h3><?php print $rule->title; ?></h3>
-                    <p><?php print $rule->description; ?></p>
+                    <div class="title">
+                        <h3><?php print $rule->title; ?></h3>
+                    </div>
+                    <div class="description">
+                        <p><?php print $rule->description; ?></p>
+                    </div>
                 </div>
             <?php endforeach; ?>
         </div>
 
-        <div id="dialog"></div>
-        <div id="mask"></div>
+        <div id="dialog" class="modal">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal">×</a>
+                <div class="title"></div>
+            </div>
+            <div class="modal-body">
+                <div class="description"></div>
+            </div>
+        </div>
     </body>
 </html>
 
