@@ -48,7 +48,6 @@ class Application
     public function __construct()
     {
         $this->rules = $this->loadRules();
-        $this->generateCss();
     }
 
     private function loadRules()
@@ -58,15 +57,6 @@ class Application
             $rules[] = new Rule($filename);
         }
         return $rules;
-    }
-
-    private function generateCss()
-    {
-        require 'vendor/lessphp/lessc.inc.php';
-
-        foreach (glob('css/*.less') as $less) {
-            lessc::ccompile($less, "$less.css");
-        }
     }
 
     public function run()
