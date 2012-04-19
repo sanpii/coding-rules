@@ -10,13 +10,13 @@ affichage (voir Listing 17.1).
 ~~~ Listing 17.1 : HourlyReporter.java
 public class HourlyReporter {
     private HourlyReportFormatter formatter;
-    private List<LineItem> page;
+    private List&lt;LineItem&gt; page;
     private final int PAGE_SIZE = 55;
     public HourlyReporter(HourlyReportFormatter formatter) {
         this.formatter = formatter;
-        page = new ArrayList<LineItem>();
+        page = new ArrayList&lt;LineItem&gt;();
     }
-    public void generateReport(List<HourlyEmployee> employees) {
+    public void generateReport(List&lt;HourlyEmployee&gt; employees) {
         for (HourlyEmployee e : employees) {
             addLineItemToPage(e);
             if (page.size() == PAGE_SIZE)
