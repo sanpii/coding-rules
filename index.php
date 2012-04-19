@@ -47,7 +47,20 @@ class Application
             $title = $titles[$rule->id{0}];
             $summary[$title][] = $rule;
         }
+        $this->sortSummary($summary);
         return $summary;
+    }
+
+    private function sortSummary(&$summary)
+    {
+        foreach ($summary as &$entries) {
+            uasort($entries, function($a, $b) {
+                return strnatcmp(
+                    substr($a->id, 1),
+                    substr($b->id, 1)
+                );
+            });
+        }
     }
 
     private function render($params)
