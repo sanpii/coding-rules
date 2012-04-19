@@ -51,6 +51,9 @@
             <div class="modal-body">
                 <div class="description"></div>
             </div>
+            <div class="modal-footer">
+                <a href="#" data-dismiss="modal" class="btn">Fermer</a>
+            </div>
         </div>
     </body>
 </html>
