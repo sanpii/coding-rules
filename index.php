@@ -1,18 +1,83 @@
 <?php
 
+function main()
+{
+    (new Application())->run();
+}
+
+class Application
+{
+    private $rules;
+
+    public function __construct()
+    {
+        $this->rules = $this->loadRules();
+    }
+
+    private function loadRules()
+    {
+        $rules = array();
+        foreach (glob('rules/*.rule') as $filename) {
+            $rules[] = Rule::newFromFile($filename);
+        }
+        return $rules;
+    }
+
+    public function run()
+    {
+        $this->render(array(
+            'rules' => $this->rules,
+            'summary' => $this->getSummary(),
+        ));
+    }
+
+    private function getSummary()
+    {
+        static $titles = array(
+            'C' => 'Commentaire',
+            'E' => 'Environnement',
+            'F' => 'Fontion',
+            'G' => 'Général',
+            'N' => 'Nommage',
+            'T' => 'Test',
+        );
+
+        $summary = array();
+        foreach ($this->rules as $rule) {
+            $title = $titles[$rule->id{0}];
+            $summary[$title][] = $rule;
+        }
+        return $summary;
+    }
+
+    private function render($params)
+    {
+        extract($params);
+        ob_start();
+        require 'layout.tpl';
+        $content = ob_get_contents();
+        ob_end_clean();
+
+        print $content;
+    }
+}
+
 class Rule
 {
     public $id;
     public $title;
     public $description;
 
-    public function __construct($filename)
+    static public function newFromFile($filename)
     {
-        $content = file_get_contents($filename);
+        $rule = new Rule();
 
-        $this->id = $this->getId($filename);
-        $this->title = $this->getTitle($content);
-        $this->description = $this->getDescription($content);
+        $content = file_get_contents($filename);
+        $rule->id = $rule->getId($filename);
+        $rule->title = $rule->getTitle($content);
+        $rule->description = $rule->getDescription($content);
+
+        return $rule;
     }
 
     private function getId($filename)
@@ -41,63 +106,5 @@ class Rule
     }
 }
 
-class Application
-{
-    private $rules;
-
-    public function __construct()
-    {
-        $this->rules = $this->loadRules();
-    }
-
-    private function loadRules()
-    {
-        $rules = array();
-        foreach (glob('rules/*.rule') as $filename) {
-            $rules[] = new Rule($filename);
-        }
-        return $rules;
-    }
-
-    public function run()
-    {
-        $this->render(array(
-            'rules' => $this->rules,
-            'summary' => $this->getSummary(),
-        ));
-    }
-
-    public function render($params)
-    {
-        extract($params);
-        ob_start();
-        require 'layout.tpl';
-        $content = ob_get_contents();
-        ob_end_clean();
-
-        print $content;
-    }
-
-    public function getSummary()
-    {
-        static $titles = array(
-            'C' => 'Commentaire',
-            'E' => 'Environnement',
-            'F' => 'Fontion',
-            'G' => 'General',
-            'N' => 'Nommage',
-            'T' => 'Test',
-        );
-
-        $summary = array();
-
-        foreach ($this->rules as $rule) {
-            $title = $titles[$rule->id{0}];
-            $summary[$title][] = $rule;
-        }
-        return $summary;
-    }
-}
-
-(new Application())->run();
+main();
 
