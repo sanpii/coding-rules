@@ -35,7 +35,7 @@ class Rule
 
     private function parseMarkdown($description)
     {
-        require_once 'markdown.php';
+        require_once 'vendor/php-markdown/markdown.php';
 
         return Markdown($description);
     }
@@ -62,7 +62,7 @@ class Application
 
     private function generateCss()
     {
-        require 'lessc.inc.php';
+        require 'vendor/lessphp/lessc.inc.php';
 
         foreach (glob('css/*.less') as $less) {
             lessc::ccompile($less, "$less.css");
