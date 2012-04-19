@@ -34,12 +34,12 @@ class Application
     private function getSummary()
     {
         static $titles = array(
-            'C' => 'Commentaire',
+            'C' => 'Commentaires',
             'E' => 'Environnement',
-            'F' => 'Fontion',
+            'F' => 'Fontions',
             'G' => 'Général',
-            'N' => 'Nommage',
-            'T' => 'Test',
+            'N' => 'Noms',
+            'T' => 'Tests',
         );
 
         $summary = array();
