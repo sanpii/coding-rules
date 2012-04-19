@@ -1,7 +1,7 @@
 == Intentions obscures ==
 Nous voulons que le code soit aussi expressif que possible. Les expressions à rallonge,
 la notation hongroise et les nombres magiques masquent les intentions de l'auteur. Par
-exemple, voici une version possible de la fonction overTimePay :
+exemple, voici une version possible de la fonction `overTimePay` :
 ~~~
 public int m_otCalc() {
     return iThsWkd * iThsRte +

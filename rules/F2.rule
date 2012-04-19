@@ -1,5 +1,5 @@
 == Arguments de sortie ==
-Les arguments de sortie sont tout sauf intuitifs. Le lecteur s'attend à ce que les argu-
-ments soient des entrées, non des sorties. Si votre fonction doit modifier un état, ce doit
+Les arguments de sortie sont tout sauf intuitifs. Le lecteur s'attend à ce que les
+arguments soient des entrées, non des sorties. Si votre fonction doit modifier un état, ce doit
 être celui de l'objet sur lequel elle est invoquée. (Voir la section "Arguments de sortie"
 à la page 50.)

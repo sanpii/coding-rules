@@ -1,19 +1,24 @@
 == Éviter la navigation transitive ==
 En général, nous ne souhaitons pas qu'un module en sache trop sur ses collaborateurs.
 Plus précisément, si A collabore avec B et si B collabore avec C, nous ne voulons pas
-que les modules qui utilisent A connaissent C. Par exemple, l'instruction a.getB().
-getC().doSomething(); n'est pas souhaitable.
-Nous appelons cela loi de Déméter. Les Pragmatic Programmers emploient l'expres-
-sion "Écrire du code timide" [PRAG, p. 138]. Dans tous les cas, l'idée est de s'assurer
+que les modules qui utilisent A connaissent C. Par exemple, l'instruction
+`a.getB().getC().doSomething();` n'est pas souhaitable.
+
+Nous appelons cela loi de Déméter. Les Pragmatic Programmers emploient l'expression
+"Écrire du code timide" [PRAG, p. 138]. Dans tous les cas, l'idée est de s'assurer
 que les modules ne connaissent que leurs collaborateurs immédiats et ne sachent pas
 comment parcourir l'intégralité du système.
-Si de nombreux modules utilisent l'instruction a.getB().getC() sous une forme ou
-sous une autre, il sera difficile de modifier la conception et l'architecture pour interpo-
-ser un module Q entre B et C. En effet, il faudra trouver chaque occurrence de
-a.getB().getC() et la convertir en a.getB().getQ().getC(). C'est ainsi que les
+
+Si de nombreux modules utilisent l'instruction `a.getB().getC()` sous une forme ou
+sous une autre, il sera difficile de modifier la conception et l'architecture pour
+interposer un module Q entre B et C. En effet, il faudra trouver chaque occurrence de
+`a.getB().getC()` et la convertir en `a.getB().getQ().getC()`. C'est ainsi que les
 architectures deviennent rigides. Un trop grand nombre de modules en savent trop sur
 l'architecture.
+
 À la place, nous voulons que nos collaborateurs directs offrent tous les services dont
 nous avons besoin. Nous ne devons pas être obligés de parcourir le graphe des objets du
 système pour trouver la méthode à invoquer. Nous voulons simplement pouvoir écrire :
+~~~
 myCollaborator.doSomething()
+~~~

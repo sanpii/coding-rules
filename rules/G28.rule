@@ -1,6 +1,6 @@
 == Encapsuler les expressions conditionnelles ==
 La logique booléenne est déjà suffisamment complexe à comprendre pour souhaiter ne
-pas la rencontrer dans le contexte d'une instruction if ou while. Extrayez des fonctions
+pas la rencontrer dans le contexte d'une instruction `if` ou `while`. Extrayez des fonctions
 qui expliquent les intentions de l'expression conditionnelle.
 Par exemple, vous devez préférer
 ~~~

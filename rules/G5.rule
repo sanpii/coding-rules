@@ -2,25 +2,29 @@
 Il s'agit de l'une des règles les plus importantes de ce livre, et vous devez la prendre très
 au sérieux. Pratiquement tous les auteurs qui écrivent des ouvrages sur la conception
 des logiciels la mentionnent. Dave Thomas et Andy Hunt la nomment principe DRY
-(Don't Repeat Yourself, Ne vous répétez pas) [PRAG]. Kent Beck en fait l'un des prin-
-cipes essentiels de l'Extreme Programming et la désigne par "une fois et une seule".
+(Don't Repeat Yourself, Ne vous répétez pas) [PRAG]. Kent Beck en fait l'un des
+principes essentiels de l'Extreme Programming et la désigne par "une fois et une seule".
 Ron Jeffries classe cette règle en seconde place, juste après la réussite de tous les tests.
+
 Chaque fois que vous recontrez une redondance dans le code, elle représente en réalité
 une opportunité d'abstraction manquée. Cette redondance peut certainement être
-convertie en un sous-programme ou une autre classe. Par cette conversion, vous enri-
-chissez le vocabulaire du langage de votre conception. D'autres programmeurs peuvent
+convertie en un sous-programme ou une autre classe. Par cette conversion, vous
+enrichissez le vocabulaire du langage de votre conception. D'autres programmeurs peuvent
 se servir des outils abstraits que vous créez. Le développement devient plus rapide et
 moins sujet aux erreurs car vous avez élevé le niveau d'abstraction.
+
 La redondance la plus courante prend la forme de pans de code identiques qui semblent
-tout droit sortis d'un copier-coller de la part des programmeurs. Ils doivent être rempla-
-cés par de simples méthodes.
-Une chaîne switch/case ou if/else qui apparaît de nombreuses fois dans différents
+tout droit sortis d'un copier-coller de la part des programmeurs. Ils doivent être
+remplacés par de simples méthodes.
+
+Une chaîne `switch`/`case` ou `if`/`else` qui apparaît de nombreuses fois dans différents
 modules, en testant toujours les mêmes conditions, est une forme de redondance plus
 subtile. Ces chaînes doivent être remplacées en utilisant le polymorphisme.
 Plus subtil encore, vous pourrez rencontrer des modules qui emploient des algorithmes
 semblables, mais qui ne partagent aucune ligne de code similaire. Il s'agit encore de
-redondance, que vous devez traiter à l'aide des motifs de conception PATRON
-DE MÉTHODE ou STRATÉGIE [GOF].
+redondance, que vous devez traiter à l'aide des motifs de conception patron
+de méthode ou stratégie [GOF].
+
 La plupart des motifs de conception apparus ces quinze dernières années sont en réalité
 des solutions bien connues pour éliminer la redondance. Les formes normales de Codd
 sont également une stratégie de suppression de la redondance dans les schémas de bases

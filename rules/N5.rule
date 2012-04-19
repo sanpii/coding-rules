@@ -1,8 +1,9 @@
 == Employer des noms longs pour les portées longues ==
-La longueur d'un nom doit être liée à sa portée. Vous pouvez choisir des noms de varia-
-bles très courts lorsque leur portée est réduite, mais pour les longues portées vous devez
+La longueur d'un nom doit être liée à sa portée. Vous pouvez choisir des noms de
+variables très courts lorsque leur portée est réduite, mais pour les longues portées vous devez
 employer des noms longs.
-Les noms de variables comme i et j sont parfaits si leur portée s'étend sur cinq lignes.
+
+Les noms de variables comme `i` et `j` sont parfaits si leur portée s'étend sur cinq lignes.
 Examinons l'extrait suivant, tiré d'un ancien jeu de bowling :
 ~~~
 private void rollMany(int n, int pins)
@@ -11,7 +12,7 @@ private void rollMany(int n, int pins)
         g.roll(pins);
 }
 ~~~
-Il est parfaitement clair et serait plus difficile à comprendre si la variable i était rempla-
-cée par rollCount. A contrario, les variables et les fonctions dont les noms sont courts
+Il est parfaitement clair et serait plus difficile à comprendre si la variable i était
+remplacée par `rollCount`. A contrario, les variables et les fonctions dont les noms sont courts
 perdent leur signification avec l'éloignement. Par conséquent, plus la portée d'un nom
 est étendue, plus ce nom doit être long et précis.

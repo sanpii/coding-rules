@@ -2,10 +2,12 @@
 Ne soyez pas trop rapide dans le choix d'un nom. Assurez-vous qu'il est descriptif.
 N'oubliez pas que le sens des noms a tendance à dériver avec l'évolution du logiciel.
 Par conséquent, vous devez vérifier fréquemment la pertinence des noms retenus.
-Il ne s'agit pas simplement d'une recommandation de "bien-être". Les noms représen-
-tent 90 % de la lisibilité d'un logiciel. Vous devez prendre le temps de faire des choix
+
+Il ne s'agit pas simplement d'une recommandation de "bien-être". Les noms
+représentent 90 % de la lisibilité d'un logiciel. Vous devez prendre le temps de faire des choix
 judicieux et de conserver des noms pertinents. Ils sont trop importants pour être pris à la
 légère.
+
 Examinez le code suivant. Quelle est sa fonction ? Si je vous montre ce code avec des
 noms bien choisis, vous le comprendrez parfaitement. En revanche, sous cette forme, il
 ne s'agit que d'un amoncellement de symboles et de nombres magiques.
@@ -52,15 +54,18 @@ public int score() {
 }
 ~~~
 Cet extrait est en réalité moins complet que le précédent. Vous pouvez néanmoins
-déduire immédiatement ce qu'il tente de réaliser et ainsi écrire les fonctions manquan-
-tes. Les nombres ne sont plus magiques et la structure de l'algorithme est parfaitement
+déduire immédiatement ce qu'il tente de réaliser et ainsi écrire les fonctions
+manquantes. Les nombres ne sont plus magiques et la structure de l'algorithme est parfaitement
 descriptive.
+
 Les noms bien choisis ont le pouvoir d'ajouter une description à la structure du code.
 Ainsi, le lecteur sait ce qu'il doit attendre des autres fonctions du module. Vous pouvez
-déduire l'implémentation de isStrike() en examinant le code précédent. Si vous lisez
-le code de la méthode isStrike, il réalise "pratiquement ce que vous attendiez".
+déduire l'implémentation de `isStrike()` en examinant le code précédent. Si vous lisez
+le code de la méthode `isStrike`, il réalise "pratiquement ce que vous attendiez"[^6].
 ~~~
 private boolean isStrike(int frame) {
     return rolls[frame] == 10;
 }
 ~~~
+
+[^6]: Voir le propos de Ward Cunningham à la page 13.

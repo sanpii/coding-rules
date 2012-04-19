@@ -4,5 +4,5 @@ Les conventions de nommage sont bonnes, mais elles sont inférieures aux structu
 qui, elles, imposent la conformité. Par exemple, les constructions switch/case avec des
 énumérations bien nommées sont inférieures aux classes de base avec des méthodes
 abstraites. Rien n'oblige le programmeur à implémenter à chaque fois l'instruction
-switch/case de la même manière. En revanche, les classes de base imposent aux clas-
-ses concrètes d'implémenter toutes les méthodes abstraites.
+switch/case de la même manière. En revanche, les classes de base imposent aux
+classes concrètes d'implémenter toutes les méthodes abstraites.

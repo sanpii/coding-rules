@@ -1,13 +1,14 @@
 == Rendre physiques les dépendances logiques ==
 Si un module dépend d'un autre, cette dépendance doit être physique, non simplement
-logique. Le module dépendant ne doit faire aucune supposition (autrement dit, dépen-
-dance logique) sur le module dont il dépend. À la place, il doit demander explicitement
+logique. Le module dépendant ne doit faire aucune supposition (autrement dit,
+dépendance logique) sur le module dont il dépend. À la place, il doit demander explicitement
 à ce module toutes les informations qui lui sont nécessaires.
+
 Imaginons par exemple que vous écriviez une fonction qui affiche un rapport des heures
-travaillées par des employés. Une classe nommée HourlyReporter collecte toutes les
-données sous une forme commode, puis les passe à HourlyReportFormatter pour leur
-affichage (voir Listing 17.1).
-~~~ Listing 17.1 : HourlyReporter.java
+travaillées par des employés. Une classe nommée `HourlyReporter` collecte toutes les
+données sous une forme commode, puis les passe à `HourlyReportFormatter` pour leur
+affichage.
+~~~
 public class HourlyReporter {
     private HourlyReportFormatter formatter;
     private List&lt;LineItem&gt; page;
@@ -43,16 +44,18 @@ public class HourlyReporter {
     }
 }
 ~~~
-Ce code présente une dépendance logique qui n'a pas été rendue physique. Pouvez-
-vous l'identifier ? Il s'agit de la constante PAGE SIZE. Pourquoi la classe HourlyRepor
-ter devrait-elle connaître la taille de la page ? La taille d'une page est de la responsabi-
-lité de la classe HourlyReportFormatter.
-Le fait de déclarer PAGE SIZE dans HourlyReporter constitue une responsabilité mal
+Ce code présente une dépendance logique qui n'a pas été rendue physique.
+Pouvez-vous l'identifier ? Il s'agit de la constante `PAGE_SIZE`. Pourquoi la classe
+`HourlyReporter` devrait-elle connaître la taille de la page ? La taille d'une page est de la
+responsabilité de la classe HourlyReportFormatter.
+
+Le fait de déclarer `PAGE_SIZE` dans `HourlyReporter` constitue une responsabilité mal
 placée [G17] qui conduit cette classe à supposer qu'elle a connaissance de la taille
-voulue pour la page. Une telle supposition est une dépendance logique. Hourly
-Reporter dépend du fait que HourlyReportFormatter est en mesure de prendre en
-charge des pages de taille égale à 55. Si une implémentation de HourlyReportFormat
-ter n'accepte pas cette taille, une erreur se produit.
+voulue pour la page. Une telle supposition est une dépendance logique.
+`HourlyReporter` dépend du fait que `HourlyReportFormatter` est en mesure de prendre en
+charge des pages de taille égale à 55. Si une implémentation de `HourlyReportFormatter`
+n'accepte pas cette taille, une erreur se produit.
+
 Pour que cette dépendance devienne physique, nous pouvons créer une nouvelle
-méthode getMaxPageSize() dans HourlyReportFormatter. Ensuite, HourlyReporter
-appellera cette fonction au lieu d'utiliser la constante PAGE SIZE.
+méthode `getMaxPageSize()` dans `HourlyReportFormatter`. Ensuite, `HourlyReporter`
+appellera cette fonction au lieu d'utiliser la constante `PAGE_SIZE`.

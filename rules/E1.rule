@@ -6,6 +6,8 @@ scripts dépendant du contexte pour construire chaque élément. Vous ne devez p
 à rechercher tous les petits fichiers JAR, XML ou autres dont le système a besoin. Vous
 devez pouvoir extraire le système par une simple commande, puis le construire à l'aide
 d'une autre commande simple.
+~~~
 svn get mySystem
 cd mySystem
 ant all
+~~~

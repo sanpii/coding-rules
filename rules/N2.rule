@@ -5,7 +5,7 @@ les êtres humains sont bien trop aptes à mélanger les niveaux d'abstraction. 
 examen de votre code, vous trouverez probablement des variables dont les noms se
 placent à un niveau trop bas. Vous devez saisir l'opportunité de modifier ces noms dès
 que vous les identifiez. L'amélioration de la lisibilité du code requiert un effort continu.
-Prenons le cas de l'interface Modem :
+Prenons le cas de l'interface `Modem` :
 ~~~
 public interface Modem {
     boolean dial(String phoneNumber);
@@ -16,10 +16,10 @@ public interface Modem {
 }
 ~~~
 À première vue, elle semble parfaite. Toutes les fonctions semblent pertinentes. C'est
-effectivement le cas pour de nombreuses applications. Cependant, certaines applica-
-tions pourraient contrôler des modems qui n'ont pas besoin de composer un numéro
-pour se connecter, par exemple les modems câble ou ADSL actuels pour l'accès à Inter-
-net. D'autres modems pourraient se connecter par l'envoi d'un numéro de port à un
+effectivement le cas pour de nombreuses applications. Cependant, certaines
+applications pourraient contrôler des modems qui n'ont pas besoin de composer un numéro
+pour se connecter, par exemple les modems câble ou ADSL actuels pour l'accès à
+Internet. D'autres modems pourraient se connecter par l'envoi d'un numéro de port à un
 commutateur au travers d'une connexion USB. Dans ce cas, il est clair que la notion de
 numéros de téléphone se trouve au mauvais niveau d'abstraction. Voici donc un
 meilleur choix de noms :
@@ -33,5 +33,5 @@ public interface Modem {
 }
 ~~~
 À présent, les noms n'ont aucun rapport avec un quelconque numéro de téléphone. Les
-méthodes peuvent toujours être employées avec des numéros de téléphone, mais égale-
-ment avec d'autres mécanismes de connexion.
+méthodes peuvent toujours être employées avec des numéros de téléphone, mais
+également avec d'autres mécanismes de connexion.

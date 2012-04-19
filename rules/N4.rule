@@ -12,10 +12,11 @@ private String doRename() throws Exception
     return PathParser.render(pathToRename);
 }
 ~~~
-Le nom de cette fonction ne dit pas ce qu'elle fait, excepté en termes vagues et géné-
-raux. Ce problème est accentué par l'existence d'une fonction nommée renamePage à
-l'intérieur de la fonction nommée doRename ! Qu'indiquent les noms à propos du rôle
+Le nom de cette fonction ne dit pas ce qu'elle fait, excepté en termes vagues et
+généraux. Ce problème est accentué par l'existence d'une fonction nommée renamePage à
+l'intérieur de la fonction nommée `doRename` ! Qu'indiquent les noms à propos du rôle
 différent des deux fonctions ? Absolument rien.
-Cette fonction devrait se nommer renamePageAndOptionallyAllReferences. Ce nom
+
+Cette fonction devrait se nommer `renamePageAndOptionallyAllReferences`. Ce nom
 peut vous sembler un peu long, et c'est bien le cas. Cependant, puisqu'il n'est employé
 qu'à un seul endroit dans le module, sa valeur d'explication contrebalance sa longueur.

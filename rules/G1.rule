@@ -3,9 +3,10 @@ Avec les environnements de programmation modernes, il est possible d'employer
 plusieurs langages différents dans un même fichier source. Par exemple, un fichier
 source Java peut contenir des morceaux de XML, HTML, YAML, JavaDoc, français,
 JavaScript, etc. De même, en plus du contenu HTML, un fichier JSP peut contenir du
-code Java, du contenu respectant la syntaxe d'une bibliothèque de balises, des commen-
-taires en français, du contenu Javadoc, du XML, du JavaScript, etc. Cette pratique est
+code Java, du contenu respectant la syntaxe d'une bibliothèque de balises, des
+commentaires en français, du contenu Javadoc, du XML, du JavaScript, etc. Cette pratique est
 au mieux perturbante, et pour le moins imprudemment négligée.
+
 Idéalement, un fichier source ne doit contenir qu'un et un seul langage. De manière plus
 réaliste, vous devrez probablement en employer plusieurs. Mais vous devez vous
 donner du mal pour réduire le nombre et l'étendue des langages supplémentaires dans

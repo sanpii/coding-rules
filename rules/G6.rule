@@ -5,15 +5,18 @@ parfois des classes abstraites pour les concepts de haut niveau et des classes d
 pour les concepts de bas niveau. Lorsque nous procédons ainsi, nous devons assurer une
 séparation totale. Nous voulons que tous les concepts de bas niveau se trouvent dans les
 classes dérivées et que tous les concepts de haut niveau soient dans la classe de base.
+
 Par exemple, les constantes, les variables ou les fonctions utilitaires qui ne concernent
 que l'implémentation détaillée ne doivent pas se trouver dans la classe de base. La
 classe de base n'a pas à connaître leur existence.
+
 Cette règle s'applique également aux fichiers sources, aux composants et aux modules.
 Pour une bonne conception du logiciel, nous devons séparer les concepts de niveaux
 différents et les placer dans des conteneurs différents. Ces conteneurs sont parfois des
 classes de base ou des classes dérivées, d'autres fois des fichiers sources, des modules
 ou des composants. Quelle que soit la situation, la séparation doit être complète. Il ne
 faut pas que les concepts de haut niveau et ceux de bas niveau soient mélangés.
+
 Prenons le code suivant :
 ~~~
 public interface Stack {
@@ -24,19 +27,20 @@ public interface Stack {
     class FullException extends Exception {}
 }
 ~~~
-La fonction percentFull se trouve au mauvais niveau d'abstraction. Même s'il peut
+La fonction `percentFull` se trouve au mauvais niveau d'abstraction. Même s'il peut
 exister plusieurs implémentations de Stack dans lesquelles le concept de remplissage se
 comprend, il existe d'autres implémentations qui ne peuvent tout simplement pas
-connaître le degré de remplissage. La fonction serait donc mieux placée dans une inter-
-face dérivée, comme BoundedStack.
+connaître le degré de remplissage. La fonction serait donc mieux placée dans une
+interface dérivée, comme `BoundedStack`.
+
 Vous pensez peut-être que l'implémentation pourrait simplement retourner zéro lorsque
-la pile n'est pas limitée. Vous oubliez sans doute qu'aucune pile n'est vraiment illimi-
-tée. Vous ne pouvez pas réellement empêcher une exception OutOfMemoryException
+la pile n'est pas limitée. Vous oubliez sans doute qu'aucune pile n'est vraiment
+illimitée. Vous ne pouvez pas réellement empêcher une exception `OutOfMemoryException`
 par un simple test
 ~~~
 stack.percentFull() < 50.0
 ~~~
 Si vous implémentez la fonction pour qu'elle retourne 0, vous mentez.
 Vous ne pouvez pas mentir ou faire semblant sous prétexte d'une abstraction mal
-placée. Isoler des abstractions fait partie des plus grandes difficultés pour les déve-
-loppeurs de logiciels, et il n'existe aucun correctif rapide lorsqu'ils se trompent.
+placée. Isoler des abstractions fait partie des plus grandes difficultés pour les
+développeurs de logiciels, et il n'existe aucun correctif rapide lorsqu'ils se trompent.

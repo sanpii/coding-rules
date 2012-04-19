@@ -1,6 +1,6 @@
 == Arguments sélecteurs ==
 Rien n'est plus abominable qu'un argument false à la fin d'un appel de fonction. Que
-signifie-t-il ? Que se passe-t-il si nous le changeons en true ? Non seulement le rôle
+signifie-t-il ? Que se passe-t-il si nous le changeons en `true` ? Non seulement le rôle
 d'un argument sélecteur est difficile à mémoriser, mais chaque argument sélecteur
 combine de nombreuses fonctions en une. Les arguments sélecteurs ne sont qu'une
 manière paresseuse d'éviter de décomposer une longue fonction en plusieurs fonctions
@@ -17,10 +17,10 @@ public int calculateWeeklyPay(boolean overtime) {
     return straightPay + overtimePay;
 }
 ~~~
-Elle est invoquée avec l'argument true lorsque les heures supplémentaires doivent être
-payées une fois et demie plus cher, et avec un argument false lorsqu'elles sont payées
+Elle est invoquée avec l'argument `true` lorsque les heures supplémentaires doivent être
+payées une fois et demie plus cher, et avec un argument `false` lorsqu'elles sont payées
 le même prix que les heures normales. Si nous rencontrons l'invocation calculate
-WeeklyPay(false) dans le code, il n'est pas certain que nous saurons nous rappeler de
+`WeeklyPay(false)` dans le code, il n'est pas certain que nous saurons nous rappeler de
 sa signification. Toutefois, le vrai problème d'une telle fonction est que son auteur a
 manqué l'occasion de l'écrire de la manière suivante :
 ~~~

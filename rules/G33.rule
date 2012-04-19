@@ -1,7 +1,7 @@
 == Encapsuler les conditions aux limites ==
 Les conditions aux limites sont difficiles à suivre. Leur traitement doit se trouver en un
 seul endroit. Ne les laissez pas se diffuser partout dans le code. Il ne faut pas que des
-nuées de +1 et de 1 s'éparpillent çà et là. Prenons le simple exemple suivant tiré de
+nuées de `+1` et de `1` s'éparpillent çà et là. Prenons le simple exemple suivant tiré de
 FitNesse :
 ~~~
 if(level + 1 < tags.length)
@@ -10,8 +10,8 @@ if(level + 1 < tags.length)
     body = null;
 }
 ~~~
-Vous aurez remarqué que level+1 apparaît deux fois. Il s'agit d'une condition aux limi-
-tes qui doit être encapsulée dans une variable nommée, par exemple, nextLevel.
+Vous aurez remarqué que `level+1` apparaît deux fois. Il s'agit d'une condition aux
+limites qui doit être encapsulée dans une variable nommée, par exemple, `nextLevel`.
 ~~~
 int nextLevel = level + 1;
 if(nextLevel < tags.length)

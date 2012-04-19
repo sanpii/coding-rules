@@ -1,15 +1,18 @@
 == Comportement évident non implémenté ==
-Si l'on respecte le "principe de moindre surprise"2, toute fonction ou classe doit implé-
-menter les comportements auxquels un autre programmeur peut raisonnablement
+Si l'on respecte le "principe de moindre surprise"[^2], toute fonction ou classe doit
+implémenter les comportements auxquels un autre programmeur peut raisonnablement
 s'attendre. Par exemple, prenons le cas d'une fonction qui convertit le nom d'un jour en
 un enum qui représente le jour.
 ~~~
 Day day = DayDate.StringToDay(String dayName);
 ~~~
-Nous nous attendons à ce que la chaîne "Monday" soit convertie en Day.MONDAY. Nous
+Nous nous attendons à ce que la chaîne "Monday" soit convertie en `Day.MONDAY`. Nous
 pouvons également supposer que les abréviations courantes sont traduites et que la
 fonction ignore la casse.
+
 Lorsqu'un comportement évident n'est pas implémenté, les lecteurs et les utilisateurs
-du code ne peuvent plus se fonder sur leurs intuitions concernant les noms des fonc-
-tions. Ils n'ont plus confiance dans l'auteur d'origine et doivent se replier sur la lecture
+du code ne peuvent plus se fonder sur leurs intuitions concernant les noms des
+fonctions. Ils n'ont plus confiance dans l'auteur d'origine et doivent se replier sur la lecture
 des détails du code.
+
+[^2]: <http://fr.wikipedia.org/wiki/Principe_de_moindre_surprise>

@@ -11,5 +11,5 @@ public ObjectOutputStream getOos() throws IOException {
     return m_oos;
 }
 ~~~
-Cette fonction ne se réduit pas à obtenir un "oos" : elle crée un ObjectOutputStream si
-ce n'est déjà fait. Elle devrait donc se nommer createOrReturnOos, par exemple.
+Cette fonction ne se réduit pas à obtenir un "oos" : elle crée un `ObjectOutputStream` si
+ce n'est déjà fait. Elle devrait donc se nommer `createOrReturnOos`, par exemple.

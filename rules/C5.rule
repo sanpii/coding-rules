@@ -1,14 +1,16 @@
 == Code mis en commentaire ==
 Les pans de code mis en commentaire me rendent fou. On ne sait jamais depuis quand
-ils sont en commentaire ni s'ils sont ou non significatifs. Personne ne veut les suppri-
-mer car tout le monde suppose que quelqu'un d'autre en a besoin ou envisage de les
+ils sont en commentaire ni s'ils sont ou non significatifs. Personne ne veut les
+suppri mer car tout le monde suppose que quelqu'un d'autre en a besoin ou envisage de les
 utiliser.
+
 Le code reste là et se dégrade, en devenant de moins en moins pertinent au fur et à
 mesure que les jours passent. Il invoque des fonctions qui n'existent plus. Il utilise des
 variables dont les noms ont changé. Il suit des conventions qui sont depuis longtemps
 obsolètes. Il pollue les modules dans lesquels il se trouve et distrait celui qui tente de le
-lire. Le code en commentaire est une abomination.
-Lorsque vous rencontrez du code en commentaire, supprimez-le ! Ne vous inquiétez
+lire. Le code en commentaire est une *abomination*.
+
+Lorsque vous rencontrez du code en commentaire, *supprimez-le* ! Ne vous inquiétez
 pas, le système de gestion du code source l'a en mémoire. Si quelqu'un en a réellement
 besoin, il peut parfaitement consulter une version précédente. Ne tolérez pas que le
 code mis en commentaire survive.

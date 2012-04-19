@@ -13,13 +13,14 @@ public class AliasLinkWidget extends ParentWidget
     ...
 }
 ~~~
-La classe VariableExpandingWidgetRoot n'a aucunement besoin de se trouver dans la
-portée de AliasLinkWidget. Par ailleurs, d'autres classes sans rapport utilisent Alias
-LinkWidget.VariableExpandingWidgetRoot. Ces classes n'ont aucunement besoin de
-connaître AliasLinkWidget.
-Le programmeur a peut-être placé VariableExpandingWidgetRoot dans AliasWidget
+La classe `VariableExpandingWidgetRoot` n'a aucunement besoin de se trouver dans la
+portée de `AliasLinkWidget`. Par ailleurs, d'autres classes sans rapport utilisent
+`AliasLinkWidget.VariableExpandingWidgetRoot`. Ces classes n'ont aucunement besoin de
+connaître `AliasLinkWidget`.
+
+Le programmeur a peut-être placé `VariableExpandingWidgetRoot` dans `AliasWidget`
 pour des raisons de commodité, ou peut-être qu'il pensait qu'elle devait absolument se
-trouver dans la portée de AliasWidget. Quelle que soit la raison, le résultat est arbi-
-traire. Les classes publiques qui ne sont pas des classes utilitaires d'une autre classe ne
+trouver dans la portée de AliasWidget. Quelle que soit la raison, le résultat est
+arbitraire. Les classes publiques qui ne sont pas des classes utilitaires d'une autre classe ne
 doivent pas se trouver dans la portée d'une autre classe. Par convention, elles doivent
 être publiques au niveau supérieur de leur paquetage.

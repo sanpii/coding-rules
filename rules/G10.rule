@@ -1,8 +1,9 @@
 == Séparation verticale ==
 Les variables et les fonctions doivent être définies au plus près de leur utilisation. Les
 variables locales doivent être déclarées juste avant leur première utilisation et doivent
-avoir une portée verticale réduite. Il ne faut pas que les déclarations des variables loca-
-les se trouvent à des centaines de lignes de leurs utilisations.
+avoir une portée verticale réduite. Il ne faut pas que les déclarations des variables
+locales se trouvent à des centaines de lignes de leurs utilisations.
+
 Les fonctions privées doivent être définies juste après leur première utilisation. Elles
 appartiennent à la portée de la classe globale, mais nous préférons limiter la distance
 verticale entre les invocations et les définitions. Pour trouver une fonction privée, il faut

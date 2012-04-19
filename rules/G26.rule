@@ -3,16 +3,20 @@ Supposer que la première correspondance est la seule correspondance d'une requ�
 probablement naïf. Utiliser des nombres en virgule flottante pour représenter les devises
 se révèle pratiquement criminel. Éviter la gestion des verrous et/ou des transactions parce
 que les mises à jour concurrentes semblent improbables est au mieux un peu fou. Déclarer
-une variable ArrayList alors qu'un List est attendu est exagérément contraignant.
-Rendre toutes les variables protected par défaut n'est pas suffisamment contraignant.
+une variable `ArrayList` alors qu'un `List` est attendu est exagérément contraignant.
+Rendre toutes les variables `protected` par défaut n'est pas suffisamment contraignant.
+
 Lorsque vous prenez une décision dans votre code, faites en sorte d'être précis. Vous
 devez savoir pourquoi vous l'avez prise et comment traiter les exceptions. Ne lésinez
 pas sur la précision de vos choix. Si vous décidez d'invoquer une fonction qui peut
-retourner null, assurez-vous de vérifier ce cas. Si vous pensez que votre requête
+retourner `null`, assurez-vous de vérifier ce cas. Si vous pensez que votre requête
 concerne un seul enregistrement dans la base de données, faites en sorte que votre code
 vérifie qu'il n'y ait pas d'autres enregistrements. Si vous devez manipuler des devises,
-employez des nombres entiers5 et appliquez les arrondis appropriés. S'il existe une
+employez des nombres entiers[^5] et appliquez les arrondis appropriés. S'il existe une
 possibilité de mises à jour concurrentes, assurez-vous d'implémenter un mécanisme de
 verrouillage.
+
 Les ambiguïtés et les imprécisions dans le code sont le résultat de désaccords ou d'une
 paresse. Dans tous les cas, elles doivent être éliminées.
+
+[^5]: Ou, mieux encore, une class `Money`, qui utilise des entiers.

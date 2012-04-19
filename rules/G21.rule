@@ -1,18 +1,27 @@
 == Comprendre l'algorithme ==
 Bien souvent, du code très amusant est écrit car le programmeur ne prend pas le temps
-de comprendre l'algorithme. Il s'attache à créer quelque chose d'opérationnel en ajou-
-tant suffisamment d'instructions if et d'indicateurs, sans envisager de s'arrêter pour
+de comprendre l'algorithme. Il s'attache à créer quelque chose d'opérationnel en
+ajoutant suffisamment d'instructions `if` et d'indicateurs, sans envisager de s'arrêter pour
 comprendre ce qui se passe réellement.
+
 La programmation ressemble souvent à une exploration. Vous pensez connaître le bon
 algorithme de mise en œuvre, mais vous finissez par le bricoler, en le retouchant ici et
 là, jusqu'à ce qu'il "fonctionne". Comment savez-vous qu'il "fonctionne" ? Parce qu'il
 passe les cas de test, pensez-vous.
+
 Cette approche n'a rien de faux. Il s'agit bien souvent de la seule manière d'arriver à
 une fonction qui implémente la tâche imaginée. Cependant, il ne suffit pas de laisser les
 guillemets autour du mot "fonctionne".
+
 Avant de considérer que l'écriture d'une fonction est terminée, vérifiez que vous
 comprenez son fonctionnement. Elle ne doit pas simplement passer tous les tests. Vous
-devez savoir4 que la solution est correcte.
+devez *savoir*[^4] que la solution est correcte.
+
 Pour le savoir, l'une des meilleures solutions consiste à remanier la fonction de manière
-à en obtenir une version si propre et si expressive qu'il devient évident qu'elle fonc-
-tionne.
+à en obtenir une version si propre et si expressive qu'il devient évident qu'elle
+fonctionne.
+
+[^4]: Il y a une différence entre savoir comment le code fonctionne et savoir
+que l'algorithme réalise le travail demandé. Ne pas être certain de l'adéquation
+d'un algorithme fait souvent partie de la vie. Ne pas être certain du
+fonctionnement de son code n'est que de la paresse.

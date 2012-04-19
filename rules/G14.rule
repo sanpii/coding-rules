@@ -1,8 +1,8 @@
 == Envie de fonctionnalité ==
 Voilà l'un des indicateurs de code de Martin Fowler [Refactoring]. Les méthodes d'une
 classe doivent s'intéresser uniquement aux variables et aux fonctions de leur classe, non
-à celles des autres classes. Lorsqu'une méthode invoque des accesseurs et des muta-
-eurs d'un autre objet pour en manipuler les données, elle envie la portée de la classe de
+à celles des autres classes. Lorsqu'une méthode invoque des accesseurs et des
+mutaeurs d'un autre objet pour en manipuler les données, elle envie la portée de la classe de
 cet autre objet. Elle voudrait se trouver à l'intérieur de cette autre classe afin d'avoir un
 accès direct aux variables qu'elle manipule. Par exemple :
 ~~~
@@ -18,9 +18,10 @@ public class HourlyPayCalculator {
     }
 }
 ~~~
-La méthode calculateWeeklyPay entre dans l'objet HourlyEmployee pour obtenir les
-données qui lui sont nécessaires. Elle envie la portée de HourlyEmployee. Elle
-"souhaite" se trouver dans HourlyEmployee.
+La méthode `calculateWeeklyPay` entre dans l'objet `HourlyEmployee` pour obtenir les
+données qui lui sont nécessaires. Elle envie la portée de `HourlyEmployee`. Elle
+"souhaite" se trouver dans `HourlyEmployee`.
+
 L'envie de fonctionnalité n'est pas souhaitable car elle oblige une classe à exposer sa
 structure interne à une autre. Toutefois, l'envie de fonctionnalité est parfois un mal
 nécessaire. Prenons le cas suivant :
@@ -39,8 +40,11 @@ public class HourlyEmployeeReport {
     }
 }
 ~~~
-La méthode reportHours envie manifestement la classe HourlyEmployee. Mais nous ne
-voulons pas que HourlyEmployee connaisse le format du rapport. Si nous déplaçons la
-chaîne de format dans la classe HourlyEmployee, nous ne respectons pas plusieurs prin-
-cipes de la conception orientée objet3. En effet, HourlyEmployee serait alors couplée au
+La méthode `reportHours` envie manifestement la classe `HourlyEmployee`. Mais nous ne
+voulons pas que `HourlyEmployee` connaisse le format du rapport. Si nous déplaçons la
+chaîne de format dans la classe `HourlyEmployee`, nous ne respectons pas plusieurs
+principes de la conception orientée objet[^3]. En effet, `HourlyEmployee` serait alors couplée au
 format du rapport, l'assujettissant ainsi aux modifications de ce format.
+
+[^3]: Plus précisement, le principe de responsabilité unique, principe ouvert/fermé
+et le principe de fermeture commune (voir [PPP]).

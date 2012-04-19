@@ -1,12 +1,13 @@
 == Code mort ==
 Le code mort correspond à du code qui n'est pas exécuté. Vous en trouverez dans le
 corps d'une instruction if qui vérifie une condition qui ne se produit jamais. Vous en
-trouverez dans le bloc catch d'une instruction try qui ne lance jamais d'exception.
+trouverez dans le bloc `catch` d'une instruction `try` qui ne lance jamais d'exception.
 Vous en trouverez dans de petites méthodes utilitaires qui ne sont jamais invoquées ou
-dans des conditions switch/case qui ne se présentent jamais.
+dans des conditions `switch`/`case` qui ne se présentent jamais.
+
 Au bout d'un certain temps, le code mort commence à "sentir". Plus il est ancien, plus
 l'odeur est forte et aigre. En effet, le code mort n'est pas totalement mis à jour lorsque
-la conception change. Il compile toujours, mais il ne respecte pas les nouvelles conven-
-tions ou les nouvelles règles. Il a été écrit à un moment où le système était différent.
+la conception change. Il compile toujours, mais il ne respecte pas les nouvelles
+conventions ou les nouvelles règles. Il a été écrit à un moment où le système était différent.
 Lorsque vous rencontrez du code mort, n'hésitez pas. Offrez-lui un enterrement décent
 en le retirant du système.

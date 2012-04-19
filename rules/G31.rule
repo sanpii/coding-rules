@@ -14,11 +14,11 @@ public class MoogDiver {
     ...
 }
 ~~~
-L'ordre des trois fonctions est important. Il faut tout d'abord invoquer saturateGra
-dient avant de pouvoir appeler reticulateSplines, et alors seulement il est possible
-d'invoquer diveForMoog. Malheureusement, le code n'impose pas ce couplage tempo-
-rel. Un autre programmeur pourrait invoquer reticulateSplines avant saturate
-Gradient, conduisant à une exception UnsaturatedGradientException. Voici une
+L'ordre des trois fonctions est important. Il faut tout d'abord invoquer
+`saturateGradient` avant de pouvoir appeler `reticulateSplines`, et alors seulement il est possible
+d'invoquer `diveForMoog`. Malheureusement, le code n'impose pas ce couplage
+temporel. Un autre programmeur pourrait invoquer `reticulateSplines` avant saturate
+Gradient, conduisant à une exception `UnsaturatedGradientException`. Voici une
 meilleure solution :
 ~~~
 public class MoogDiver {

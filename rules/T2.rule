@@ -3,4 +3,4 @@ Les outils d'analyse de couverture signalent tous les trous existant dans votre 
 test. Ils permettent de trouver facilement les modules, les classes et les fonctions qui sont
 insuffisamment testés. La plupart des IDE fournissent une indication visuelle, en
 marquant en vert les lignes couvertes et en rouge celles non couvertes. Il est ainsi très
-rapide et très facile de trouver les instructions if ou catch dont le corps n'est pas vérifié.
+rapide et très facile de trouver les instructions `if` ou `catch` dont le corps n'est pas vérifié.

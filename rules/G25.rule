@@ -1,12 +1,14 @@
 == Remplacer les nombres magiques par des constantes nommées ==
-Il s'agit probablement de l'une des plus anciennes règles du développement de logi-
-ciels. Je me souviens l'avoir lue à la fin des années 1960 en introduction des manuels
+Il s'agit probablement de l'une des plus anciennes règles du développement de
+logiciels. Je me souviens l'avoir lue à la fin des années 1960 en introduction des manuels
 COBOL, FORTRAN et PL/1. En général, il est contre-indiqué d'employer directement
 des nombres dans le code. Ils doivent être cachés derrière des constantes aux noms
 parfaitement choisis.
-Par exemple, le nombre 86 400 doit être caché derrière la constante SECONDS PER DAY.
+
+Par exemple, le nombre 86 400 doit être caché derrière la constante `SECONDS_PER_DAY`.
 Si vous affichez 55 lignes par page, le nombre 55 doit être caché derrière la constante
-LINES PER PAGE.
+`LINES_PER_PAGE`.
+
 Certaines constantes sont si faciles à reconnaître qu'elles n'ont pas besoin d'être
 cachées derrière une constante nommée si elles sont employées conjointement à du
 code très descriptif. Par exemple :
@@ -15,31 +17,35 @@ double milesWalked = feetWalked/5280.0;
 int dailyPay = hourlyRate * 8;
 double circumference = radius * Math.PI * 2;
 ~~~
-Avons-nous vraiment besoin des constantes FEET PER MILE, WORK HOURS PER DAY et
+Avons-nous vraiment besoin des constantes `FEET_PER_MILE`, `WORK_HOURS_PER_DAY` et
 TWO dans les exemples précédents ? Bien évidemment, le dernier cas est absurde. Il
 s'agit de formules dans lesquelles les constantes doivent simplement être écrites
-comme des nombres. Vous pourriez tergiverser quant au cas de WORK HOURS PER DAY
+comme des nombres. Vous pourriez tergiverser quant au cas de `WORK_HOURS_PER_DAY`
 car les lois ou les conventions pourraient évoluer. En revanche, la formule se lit si bien
 avec le 8 qu'il est délicat d'ajouter dix-sept caractères supplémentaires à la charge du
-lecteur. Pour FEET PER MILE, le nombre 5 280 est tellement connu et unique que le
+lecteur. Pour `FEET_PER_MILE`, le nombre 5 280 est tellement connu et unique que le
 lecteur (anglophone) le reconnaîtrait même s'il se trouvait seul sur une page sans aucun
 contexte.
+
 Des constantes comme 3.141592653589793 sont également très connues et facilement
 reconnaissables. Cependant, les risques d'erreur sont trop importants pour les laisser
 sous cette forme. Chaque fois que quelqu'un voit 3.1415927535890793, il sait qu'il
 s'agit de π et n'y prête donc pas une attention particulière. (Avez-vous remarqué
 l'erreur ?) Par ailleurs, nous ne souhaitons pas que les gens utilisent 3.14, 3.14159 ou
-3.142. Par conséquent, c'est une bonne chose que Math.PI soit déjà défini pour nous.
+3.142. Par conséquent, c'est une bonne chose que `Math.PI` soit déjà défini pour nous.
 L'expression "nombre magique" ne s'applique pas uniquement aux nombres. Elle
 concerne également tout élément dont la valeur n'est pas autodescriptive. Par exemple :
+~~~
 assertEquals(7777, Employee.find(“John Doe”).employeeNumber());
+~~~
 Cette assertion contient deux nombres magiques. Le premier est évidemment 7777,
 mais sa signification n'est pas évidente. Le second est "John Doe" et, encore une fois,
 les intentions ne sont pas claires.
+
 En réalité "John Doe" est le nom de l'employé n° 7777 dans une base de données de
 test très connue au sein de notre équipe. Tous les membres de l'équipe savent que cette
-base de données contient plusieurs employés, avec des valeurs et des attributs parfaite-
-ment connus. Par ailleurs, "John Doe" est également le seul salarié horaire dans cette
+base de données contient plusieurs employés, avec des valeurs et des attributs
+parfaitement connus. Par ailleurs, "John Doe" est également le seul salarié horaire dans cette
 base de données de test. Par conséquent, le test devrait être écrit de la manière suivante :
 ~~~
 assertEquals(
