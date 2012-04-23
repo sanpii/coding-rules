@@ -16,7 +16,7 @@ class Application
 
     private function loadRules()
     {
-        $rules = array();
+        $rules = [];
         foreach (glob('rules/*.rule') as $filename) {
             $rules[] = Rule::newFromFile($filename);
         }
@@ -25,24 +25,24 @@ class Application
 
     public function run()
     {
-        $this->render(array(
+        $this->render([
             'rules' => $this->rules,
             'summary' => $this->getSummary(),
-        ));
+        ]);
     }
 
     private function getSummary()
     {
-        static $titles = array(
+        static $titles = [
             'C' => 'Commentaires',
             'E' => 'Environnement',
             'F' => 'Fontions',
             'G' => 'Général',
             'N' => 'Noms',
             'T' => 'Tests',
-        );
+        ];
 
-        $summary = array();
+        $summary = [];
         foreach ($this->rules as $rule) {
             $title = $titles[$rule->id{0}];
             $summary[$title][] = $rule;
