@@ -40,6 +40,7 @@ class Application
             'G' => 'Général',
             'N' => 'Noms',
             'T' => 'Tests',
+            'V' => 'Gestionnaire de version',
         ];
 
         $summary = [];

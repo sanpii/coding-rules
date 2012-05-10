@@ -1,0 +1,5 @@
+== Commit atomique ==
+Un commit doit être pensé pour être annulé de manière indépendante des autres,
+ceci peut ce résumé par :
+
+> 1 commit = 1 fonctionnalité.
