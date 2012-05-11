@@ -13,10 +13,6 @@ $(document).ready(function() {
         window.location.hash = id;
         dialogShow(id);
     });
-
-    $('#dialog').on('hidden', function () {
-        window.location.hash = '';
-    });
 });
 
 function dialogShow(ruleId)

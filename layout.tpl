@@ -69,7 +69,7 @@
                 <div class="description"></div>
             </div>
             <div class="modal-footer">
-                <a href="#" data-dismiss="modal" class="btn">Fermer</a>
+                <span data-dismiss="modal" class="btn">Fermer</span>
             </div>
         </div>
     </body>
