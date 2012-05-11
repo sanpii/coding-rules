@@ -30,7 +30,9 @@
                         <?php foreach($entries as $rule): ?>
                             <li>
                                 <a href="#<?php print $rule->id ?>">
-                                    <span class="icon-chevron-right"></span><?php print $rule->title; ?>
+                                    <span class="icon-chevron-right"></span>
+                                    <?php print $rule->id; ?> :
+                                    <?php print $rule->title; ?>
                                 </a>
                             </li>
                         <?php endforeach; ?>
