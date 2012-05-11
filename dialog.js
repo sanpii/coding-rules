@@ -35,6 +35,9 @@ if ( window.addEventListener ) {
     window.addEventListener("keydown", function(e) {
         kkeys.push(e.keyCode);
         if (kkeys.toString().indexOf(konami) >= 0)
+        {
+            kkeys = [];
             window.location = 'http://thc.org/root/phun/unmaintain.html';
+        }
     }, true);
 }
