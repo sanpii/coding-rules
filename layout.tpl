@@ -8,57 +8,70 @@
         <script type="text/javascript" src="vendor/jquery-1.7.2.min.js"></script>
         <script type="text/javascript" src="vendor/bootstrap-modal.js"></script>
         <script type="text/javascript" src="dialog.js"></script>
+        <script type="text/javascript" src="filter.js"></script>
     </head>
     <body>
-        <header>
-            <div class="page-header">
-                <h1>Indicateurs heuristiques</h1>
-            </div>
-            <blockquote>
-                <p>Clean code that works</p>
-                <small>Kent Beck</small>
-            </blockquote>
-        </header>
+       <div class="navbar navbar-fixed-top">
+           <div class="navbar-inner">
+               <div class="container">
+                   <a class="brand" href="#">Indicateurs heuristiques</a>
+                   <form method="get" class="navbar-search pull-right" id="search">
+                       <input type="text" name="q" class="search-query"
+                           placeholder="Rechercher" value="<?php print $query; ?>" />
+                   </form>
+               </div>
+           </div>
+       </div>
 
-        <nav class="row">
-            <?php $i = 0; ?>
-            <?php foreach($summary as $title => $entries): ?>
-                <?php $class_clear = ($i % 3 == 0) ? 'clear' : ''; ?>
-                <div class="span4 well <?php print $class_clear; ?>">
-                    <ul class="nav nav-list">
-                        <li class="nav-header"><?php print $title; ?></li>
-                        <?php foreach($entries as $rule): ?>
-                            <li>
-                                <a href="#<?php print $rule->id ?>">
-                                    <span class="icon-chevron-right"></span>
-                                    <?php print $rule->id; ?> :
-                                    <?php print $rule->title; ?>
-                                </a>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
-                <?php $i++; ?>
-            <?php endforeach; ?>
-        </nav>
+        <div class="container">
+            <header>
 
-        <section id="rules">
-            <?php foreach($rules as $rule): ?>
-                <article id="<?php print $rule->id; ?>">
-                    <div class="title">
-                        <h3><?php print $rule->title; ?></h3>
+                <blockquote>
+                    <p>Clean code that works</p>
+                    <small>Kent Beck</small>
+                </blockquote>
+            </header>
+
+            <nav class="row">
+                <?php $i = 0; ?>
+                <?php foreach($summary as $title => $entries): ?>
+                    <?php $class_clear = ($i % 3 == 0) ? 'clear' : ''; ?>
+                    <div class="span4 well <?php print $class_clear; ?>">
+                        <ul class="nav nav-list">
+                            <li class="nav-header"><?php print $title; ?></li>
+                            <?php foreach($entries as $rule): ?>
+                                <li>
+                                    <a href="#<?php print $rule->id ?>">
+                                        <span class="icon-chevron-right"></span>
+                                        <?php print $rule->id; ?> :
+                                        <?php print $rule->title; ?>
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
                     </div>
-                    <div class="description">
-                        <?php print $rule->description; ?>
-                    </div>
-                </article>
-            <?php endforeach; ?>
-        </section>
+                    <?php $i++; ?>
+                <?php endforeach; ?>
+            </nav>
 
-        <footer>
-            <p class="pull-right"><a href="#">Back to top</a></p>
-            <p>Code licensed under the <a target="_blank" href="http://en.wikipedia.org/wiki/Beerware">Beerware License</a>.
-        </footer>
+            <section id="rules">
+                <?php foreach($rules as $rule): ?>
+                    <article id="<?php print $rule->id; ?>">
+                        <div class="title">
+                            <h3><?php print $rule->title; ?></h3>
+                        </div>
+                        <div class="description">
+                            <?php print $rule->description; ?>
+                        </div>
+                    </article>
+                <?php endforeach; ?>
+            </section>
+
+            <footer>
+                <p class="pull-right"><a href="#">Back to top</a></p>
+                <p>Code licensed under the <a target="_blank" href="http://en.wikipedia.org/wiki/Beerware">Beerware License</a>.
+            </footer>
+        </div>
 
         <div id="dialog" class="modal">
             <div class="modal-header">

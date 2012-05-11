@@ -7,10 +7,12 @@ function main()
 
 class Application
 {
+    private $query;
     private $rules;
 
     public function __construct()
     {
+        $this->query = @$_GET['q'] ?: '';
         $this->rules = $this->loadRules();
     }
 
@@ -25,10 +27,22 @@ class Application
 
     public function run()
     {
+        $this->filterRules($this->rules);
+
         $this->render([
             'rules' => $this->rules,
             'summary' => $this->getSummary(),
+            'query' => $this->query,
         ]);
+    }
+
+    private function filterRules(&$rules)
+    {
+        if (!empty($this->query)) {
+            $rules = array_filter($rules, function($rule) {
+                return (stristr($rule->title, $this->query) !== false);
+            });
+        }
     }
 
     private function getSummary()
@@ -43,7 +57,7 @@ class Application
             'V' => 'Gestionnaire de version',
         ];
 
-        $summary = [];
+        $summary = array_fill_keys($titles, []);
         foreach ($this->rules as $rule) {
             $title = $titles[$rule->id{0}];
             $summary[$title][] = $rule;
@@ -121,4 +135,3 @@ class Rule
 }
 
 main();
-
