@@ -42,7 +42,7 @@
             <?php endforeach; ?>
         </nav>
 
-        <section class="rules">
+        <section id="rules">
             <?php foreach($rules as $rule): ?>
                 <article id="<?php print $rule->id; ?>">
                     <div class="title">

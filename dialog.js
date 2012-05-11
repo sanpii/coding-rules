@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('.rules').hide();
+    $('#rules').hide();
 
     var qs = window.location.hash;
     if (qs !== '') {
