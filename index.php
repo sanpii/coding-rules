@@ -50,7 +50,7 @@ class Application
         static $titles = [
             'C' => 'Commentaires',
             'E' => 'Environnement',
-            'F' => 'Fontions',
+            'F' => 'Fonctions',
             'G' => 'Général',
             'N' => 'Noms',
             'T' => 'Tests',
