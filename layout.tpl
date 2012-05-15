@@ -58,7 +58,10 @@
                 <?php foreach($rules as $rule): ?>
                     <article id="<?php print $rule->id; ?>">
                         <div class="title">
-                            <h3><?php print $rule->title; ?></h3>
+                            <h3>
+                                <?php print $rule->id; ?> :
+                                <?php print $rule->title; ?>
+                            </h3>
                         </div>
                         <div class="description">
                             <?php print $rule->description; ?>
