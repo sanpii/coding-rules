@@ -59,8 +59,10 @@ class Application
 
         $summary = array_fill_keys($titles, []);
         foreach ($this->rules as $rule) {
-            $title = $titles[$rule->id{0}];
-            $summary[$title][] = $rule;
+            if (isset($titles[$rule->id{0}])) {
+                $title = $titles[$rule->id{0}];
+                $summary[$title][] = $rule;
+            }
         }
         $this->sortSummary($summary);
         return $summary;
