@@ -1,0 +1,14 @@
+{
+    "minimum-stability": "dev",
+    "require": {
+        "dflydev/markdown": "*",
+        "bsrykt/twitter-bootstrap": "*@stable",
+        "leafo/lessphp": "*"
+    },
+    "scripts": {
+        "post-update-cmd": "Sanpi\\Coding\\Script\\Installer::postUpdate"
+    },
+    "autoload": {
+        "psr-0": { "Sanpi": ["src/"] }
+    }
+}
