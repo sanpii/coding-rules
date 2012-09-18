@@ -2,6 +2,8 @@
 
 function main()
 {
+    require __DIR__ . '/vendor/autoload.php';
+
     (new Application)->run();
 }
 
@@ -130,9 +132,8 @@ class Rule
 
     private function parseMarkdown($description)
     {
-        require_once 'vendor/php-markdown/markdown.php';
-
-        return Markdown($description);
+        $parser = new \dflydev\markdown\MarkdownParser();
+        return $parser->transform($description);
     }
 }
 
