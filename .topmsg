@@ -1,0 +1,6 @@
+From: Sanpi <sanpi@homecomputing.fr>
+Subject: [PATCH] t/php-5.3
+
+Remove PHP 5.4 features
+
+Signed-off-by: Sanpi <sanpi@homecomputing.fr>
