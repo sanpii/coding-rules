@@ -2,7 +2,7 @@
 
 function main()
 {
-    (new Application())->run();
+    (new Application)->run();
 }
 
 class Application
