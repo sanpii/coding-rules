@@ -10,7 +10,7 @@ class Rule
 
     static public function getAll($filter)
     {
-        static $titles = [
+        static $titles = array(
             'C' => 'Commentaires',
             'E' => 'Environnement',
             'F' => 'Fonctions',
@@ -18,9 +18,9 @@ class Rule
             'N' => 'Noms',
             'T' => 'Tests',
             'V' => 'Gestionnaire de version',
-        ];
+        );
 
-        $rules = [];
+        $rules = array();
         foreach (glob(__DIR__ . '/../../../rules/*.rule') as $filename) {
             $rule = self::newFromFile($filename);
             if (self::accept($filter, $rule)) {

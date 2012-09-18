@@ -17,10 +17,10 @@ $app['debug'] = true;
 $app->get('/', function() use($app) {
     $query = isset($_GET['q']) ? $_GET['q'] : '';
 
-    return $app['twig']->render('layout.html.twig', [
+    return $app['twig']->render('layout.html.twig', array(
         'sections' => Rule::getAll($query),
         'query' => $query,
-    ]);
+    ));
 });
 
 $app->run();
