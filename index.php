@@ -2,7 +2,8 @@
 
 function main()
 {
-    (new Application)->run();
+    $application = new Application();
+    $application->run();
 }
 
 class Application
