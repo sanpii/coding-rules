@@ -12,7 +12,7 @@ class Application
 
     public function __construct()
     {
-        $this->query = @$_GET['q'] ?: '';
+        $this->query = $_GET['q'] ? $_GET['q'] : '';
         $this->rules = $this->loadRules();
     }
 
