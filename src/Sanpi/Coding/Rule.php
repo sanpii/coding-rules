@@ -10,46 +10,25 @@ class Rule
 
     static public function getAll($filter)
     {
-        static $titles = array(
-            'C' => 'Commentaires',
-            'E' => 'Environnement',
-            'F' => 'Fonctions',
-            'G' => 'Général',
-            'N' => 'Noms',
-            'T' => 'Tests',
-            'V' => 'Gestionnaire de version',
-        );
-
         $rules = array();
-        foreach (glob(__DIR__ . '/Resources/rules/*.rule') as $filename) {
-            $rule = self::newFromFile($filename);
-            if (self::accept($filter, $rule)) {
-                if (isset($titles[$rule->id{0}])) {
-                    $title = $titles[$rule->id{0}];
-                    $rules[$title][] = $rule;
+        foreach (glob(__DIR__ . '/Resources/rules/*') as $section) {
+            if (is_dir($section)) {
+                foreach (glob("$section/*.rule") as $filename) {
+                    $rule = self::newFromFile($filename);
+                    if (self::accept($rule, $filter)) {
+                        $title = basename($section);
+                        $rules[$title][] = $rule;
+                    }
                 }
             }
         }
 
-        return self::sort($rules);
+        return $rules;
     }
 
-    static private function accept($filter, $rule)
+    static private function accept($rule, $filter)
     {
         return (empty($filter) || stristr($rule->title, $filter) !== false);
-    }
-
-    static private function sort($rules)
-    {
-        foreach ($rules as &$section) {
-            uasort($section, function($a, $b) {
-                return strnatcmp(
-                    substr($a->id, 1),
-                    substr($b->id, 1)
-                );
-            });
-        }
-        return $rules;
     }
 
     static private function newFromFile($filename)
@@ -66,7 +45,7 @@ class Rule
 
     private function getId($filename)
     {
-        preg_match('#rules/(\w\d{1,2}).rule#', $filename, $matches);
+        preg_match('#/(\w\d{1,2}).rule#', $filename, $matches);
         return array_pop($matches);
     }
 
