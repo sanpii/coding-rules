@@ -14,7 +14,7 @@ class Rule
         foreach (glob(__DIR__ . '/Resources/rules/*') as $section) {
             if (is_dir($section)) {
                 foreach (glob("$section/*.rule") as $filename) {
-                    $rule = self::newFromFile($filename);
+                    $rule = new self($filename);
                     if (self::accept($rule, $filter)) {
                         $title = basename($section);
                         $rules[$title][] = $rule;
@@ -31,16 +31,14 @@ class Rule
         return (empty($filter) || stristr($rule->title, $filter) !== false);
     }
 
-    static private function newFromFile($filename)
+    public function __construct($filename = null)
     {
-        $rule = new self();
-
-        $content = file_get_contents($filename);
-        $rule->id = $rule->getId($filename);
-        $rule->title = $rule->getTitle($content);
-        $rule->description = $rule->getDescription($content);
-
-        return $rule;
+        if (is_file($filename)) {
+            $content = file_get_contents($filename);
+            $this->id = $this->getId($filename);
+            $this->title = $this->getTitle($content);
+            $this->description = $this->getDescription($content);
+        }
     }
 
     private function getId($filename)
