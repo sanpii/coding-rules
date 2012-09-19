@@ -19,4 +19,10 @@ $app->get('/', function() use($app) {
     ));
 });
 
+$app->get('/json/{query}', function($query) use($app) {
+    return $app->json(
+        Rule::getAll($query)
+    );
+})->value('query', '');
+
 return $app;
