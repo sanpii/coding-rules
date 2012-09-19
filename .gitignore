@@ -1,2 +1,5 @@
 composer.lock
 vendor
+web/css/bootstrap.css
+web/js/bootstrap-modal.js
+web/img/glyphicons-halflings.png

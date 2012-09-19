@@ -3,12 +3,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Indicateurs heuristiques</title>
-        <link rel="Stylesheet" type="text/css" href="vendor/bsrykt/twitter-bootstrap/css/bootstrap.css" />
-        <link rel="Stylesheet" type="text/css" href="style.css" />
-        <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
-        <script type="text/javascript" src="vendor/bsrykt/twitter-bootstrap/js/bootstrap-modal.js"></script>
-        <script type="text/javascript" src="dialog.js"></script>
-        <script type="text/javascript" src="filter.js"></script>
+        <link rel="Stylesheet" type="text/css" href="./css/bootstrap.css" />
+        <link rel="Stylesheet" type="text/css" href="./css/style.css" />
+        <script type="text/javascript" src="./js/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="./js/bootstrap-modal.js"></script>
+        <script type="text/javascript" src="./js/dialog.js"></script>
+        <script type="text/javascript" src="./js/filter.js"></script>
     </head>
     <body>
        <div class="navbar navbar-fixed-top">
@@ -17,7 +17,7 @@
                    <a class="brand" href="#">Indicateurs heuristiques</a>
                    <form method="get" class="navbar-search pull-right" id="search">
                        <input type="text" name="q" class="search-query"
-                           placeholder="Rechercher" value="<?php print $query; ?>" />
+                           placeholder="Rechercher" value="{{ query }}" />
                    </form>
                </div>
            </div>
@@ -33,41 +33,38 @@
             </header>
 
             <nav class="row">
-                <?php $i = 0; ?>
-                <?php foreach($summary as $title => $entries): ?>
-                    <?php $class_clear = ($i % 3 == 0) ? 'clear' : ''; ?>
-                    <div class="span4 well <?php print $class_clear; ?>">
+                {% set i = 0 %}
+                {% for title, rules in sections %}
+                    <div class="span4 well{{ cycle([' clear', '', ''], i) }}">
                         <ul class="nav nav-list">
-                            <li class="nav-header"><?php print $title; ?></li>
-                            <?php foreach($entries as $rule): ?>
+                            <li class="nav-header">{{ title }}</li>
+                            {% for rule in rules %}
                                 <li>
-                                    <a href="#<?php print $rule->id ?>">
+                                    <a href="#{{ rule.id }}">
                                         <span class="icon-chevron-right"></span>
-                                        <?php print $rule->id; ?> :
-                                        <?php print $rule->title; ?>
+                                        {{ rule.id }} : {{ rule.title }}
                                     </a>
                                 </li>
-                            <?php endforeach; ?>
+                            {% endfor %}
                         </ul>
                     </div>
-                    <?php $i++; ?>
-                <?php endforeach; ?>
+                {% set i = i + 1 %}
+                {% endfor %}
             </nav>
 
             <section id="rules">
-                <?php foreach($rules as $rule): ?>
-                    <article id="<?php print $rule->id; ?>">
-                        <div class="title">
-                            <h3>
-                                <?php print $rule->id; ?> :
-                                <?php print $rule->title; ?>
-                            </h3>
-                        </div>
-                        <div class="description">
-                            <?php print $rule->description; ?>
-                        </div>
-                    </article>
-                <?php endforeach; ?>
+                {% for section, rules in sections %}
+                    {% for rule in rules %}
+                        <article id="{{ rule.id }}">
+                            <div class="title">
+                                <h3>{{ rule.id }} : {{ rule.title }}</h3>
+                            </div>
+                            <div class="description">
+                                {{ rule.description|raw }}
+                            </div>
+                        </article>
+                    {% endfor %}
+                {% endfor %}
             </section>
 
             <footer>
@@ -90,4 +87,3 @@
         </div>
     </body>
 </html>
-
