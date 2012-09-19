@@ -21,7 +21,7 @@ class Rule
         );
 
         $rules = array();
-        foreach (glob(__DIR__ . '/../../../rules/*.rule') as $filename) {
+        foreach (glob(__DIR__ . '/Resources/rules/*.rule') as $filename) {
             $rule = self::newFromFile($filename);
             if (self::accept($filter, $rule)) {
                 if (isset($titles[$rule->id{0}])) {
