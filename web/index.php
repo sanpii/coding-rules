@@ -1,26 +1,14 @@
 <?php
 
+$filename = __DIR__ . preg_replace('#(\?.*)$#', '', $_SERVER['REQUEST_URI']);
+if (php_sapi_name() === 'cli-server' && is_file($filename)) {
+    return false;
+}
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Silex\Application;
-use Silex\Provider\TwigServiceProvider;
-use Sanpi\Coding\Rule;
-
-$app = new Application();
-
-$app->register(new TwigServiceProvider(), array(
-    'twig.path' => __DIR__ . '/views',
-));
-
-$app['debug'] = true;
-
-$app->get('/', function() use($app) {
-    $query = isset($_GET['q']) ? $_GET['q'] : '';
-
-    return $app['twig']->render('layout.html.twig', array(
-        'sections' => Rule::getAll($query),
-        'query' => $query,
-    ));
-});
-
+$app = require __DIR__ . '/../src/app.php';
+if (php_sapi_name() === 'cli-server') {
+    $app['debug'] = true;
+}
 $app->run();
