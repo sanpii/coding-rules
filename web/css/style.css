@@ -22,10 +22,6 @@ nav ul li, p {
     font-size: 18px;
 }
 
-[class^="icon-"], [class*=" icon-"] {
-    vertical-align: -2px;
-}
-
 #dialog {
     display: none;
     width: 600px;
