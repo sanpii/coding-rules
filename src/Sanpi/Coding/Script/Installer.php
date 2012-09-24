@@ -10,7 +10,7 @@ class Installer
     {
         $rootDir = __DIR__ . '/../../../../';
         $webDir = "$rootDir/web";
-        $bootstrapDir = "$rootDir/vendor/bsrykt/twitter-bootstrap/";
+        $bootstrapDir = "$rootDir/vendor/twitter/bootstrap/";
 
         self::createDirectory("$webDir/css");
         self::createDirectory("$webDir/img");
