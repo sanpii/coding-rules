@@ -8,6 +8,10 @@ body {
     width: auto;
 }
 
+#messages .alert {
+    display: none;
+}
+
 nav ul {
     margin-top: 9px;
     font-size: 16px;

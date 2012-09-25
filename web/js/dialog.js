@@ -17,13 +17,21 @@ $(document).ready(function() {
 
 function dialogShow(ruleId)
 {
-    dialogPopulate(ruleId);
-    $('#dialog').modal('show');
+    if ($(ruleId).length !== 0) {
+        $('#messages .alert').hide();
+        dialogPopulate(ruleId);
+        $('#dialog').modal('show');
+    }
+    else {
+        $('#messages .alert-error').html('<strong>Erreur :</strong> règle inconnue.');
+        $('#messages .alert-error').show();
+    }
 }
 
 function dialogPopulate(ruleId)
 {
     var title = $(ruleId + ' .title').html();
+
     $('#dialog .title').html(title);
 
     var description = $(ruleId + ' .description').html();
